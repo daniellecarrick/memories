@@ -1,0 +1,30 @@
+{
+  "name": "memories",
+  "version": "1.0.0",
+  "description": "Crowd sourced memories visualized",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniellecarrick/memories.git"
+  },
+  "keywords": [
+    "memories"
+  ],
+  "author": "Danielle Carrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniellecarrick/memories/issues"
+  },
+  "homepage": "https://github.com/daniellecarrick/memories#readme",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "mongoose": "^4.8.7"
+  }
+}
