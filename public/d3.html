@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<body>
-
-<h1>Title of chart</h1>
-<script src="https://d3js.org/d3.v4.js"></script>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+</head>
+<body>
+<h2 class="chart-title">Age and memory sentiment</h2>
+
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -34,20 +38,20 @@ var svg = d3.select("body").append("svg")
 
 
 // get the data!
-d3.csv("data.csv", function(error, data) {
-  if (error) throw error;
-
-  //console.log(data);
+/*d3.csv("data.csv", function(error, data) {
+  if (error) throw error;*/
+d3.json('/memoriesdb', function (err, data) {
+  console.log('your array of memories!', data);
 
   // ensures data are numbers
   data.forEach(function(d) {
-    d.rating = +d.rating;
+    d.posNeg = +d.posNeg;
     d.age = +d.age;
   });
 
   // sets the min and max for each axis
   var xscale = x.domain(d3.extent(data, function(d) { return d.age; })).nice();
-  // yscale contains the ratings values which are always between 1 and 10.
+  // yscale contains the posNegs values which are always between 1 and 10.
   var yscale = y.domain([1, 10]);
 
   // x-axis rendering and labels
@@ -80,8 +84,8 @@ d3.csv("data.csv", function(error, data) {
       .attr("class", "dot")
       .attr("r", 10)
       .attr("cx", function(d) { return x(d.age); })
-      .attr("cy", function(d) { return y(d.rating); })
-      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.rating))});
+      .attr("cy", function(d) { return y(d.posNeg); })
+      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg))});
 
  /* var legend = svg.selectAll(".legend")
       .data(color.domain())
