@@ -11,7 +11,8 @@
   <div class="landing-page">
     <div class="container">
       <div class="row">
-        <h1>What is your most significant memory?</h1>
+        <h1>What is your most important memory?</h1>
+        <p>It can be big or small, happy or sad, as long as it's important to you.</p>
         <!-- Form starts here -->
         <div class="col-md-12">
             <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory">Share your memory</textarea>
@@ -45,10 +46,12 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <input class="form-control padding" type="number" name="age" placeholder="age at memory">
+          <label class="pull-left" for="age">Age at memory</label>
+            <input class="form-control padding" id="age" type="number" name="age">
         </div>
         <div class="col-md-6">
-          <input class="form-control padding" type="text" name="location" placeholder="location of memory">
+          <label class="pull-left" for="location">Location of memory</label>
+          <input class="form-control padding" type="text" name="location">
         </div>
         <button class="btn btn-default" type="button">Share</button>
       </div>
