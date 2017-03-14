@@ -36,10 +36,11 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
-// get the data!
-/*d3.csv("data.csv", function(error, data) {
-  if (error) throw error;*/
+// get the data! from a database! how cool!
 d3.json('/memoriesdb', function (err, data) {
   console.log('your array of memories!', data);
 
@@ -78,6 +79,7 @@ d3.json('/memoriesdb', function (err, data) {
       .style("text-anchor", "end")
       .text("sentiment")
 
+  // data markers
   svg.selectAll(".dot")
       .data(data)
     .enter().append("circle")
@@ -85,7 +87,16 @@ d3.json('/memoriesdb', function (err, data) {
       .attr("r", 10)
       .attr("cx", function(d) { return x(d.age); })
       .attr("cy", function(d) { return y(d.posNeg); })
-      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg))});
+      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); })
+      .on("mouseover", function(d) {
+        console.log(d.body);
+       tooltip.transition()
+         .duration(200)
+         .style("opacity", .9);
+       tooltip.html(d.body)
+         .style("left", "0px")
+         .style("top", "0px");
+       })
 
  /* var legend = svg.selectAll(".legend")
       .data(color.domain())
