@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
-/*
+
 var mongoose = require('mongoose');
-var Goal = require("./models/memoriesModel");
-mongoose.connect("mongodb://localhost/memoriesdb"); //database name*/
+var Memory = require("./models/memoryModel");
+mongoose.connect("mongodb://localhost/memoriesdb");
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
