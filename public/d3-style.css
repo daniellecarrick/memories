@@ -34,12 +34,15 @@ div.tooltip:after {
   color: black;
 }
 
-.axisRed line{
-  stroke: red;
+/* ticks */
+.x.axis line, .y.axis line {
+  stroke: grey;
+  stroke-width: 1px;
 }
 
-.axisRed path{
-  stroke: red;
+.x.axis path, .y.axis path {
+  stroke: grey;
+  stroke-width: 2px;
 }
 
 .axisRed text{
