@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>keywords fetching</title>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-app="appAnguflix"> 
+  <section ng-controller="keywordsCtrl" class="container-fluid"><!--main controller-->
+            <h1 class="text-center">keywords</h1>
+              <div class="row">
+                  <div class="col-md-12 well" ng-repeat="post in posts | orderBy: '-title' track by $index">
+                        <div class="col-md-6 text-section">
+                            <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
+                            <p>{{movie.plot}}</p>
+                            <div class="priceTag">{{ movie.priceTag | currency}}</div>
+                        </div>  
+                   </div>
+              </div>
+  </section>
+
+
+
+
+
+<!--scripts-->
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.2/angular-sanitize.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="keywordsService.js"></script>
+<script type="text/javascript" src="keywordsCtrl.js"></script>
+
+
+</body>
+</html>
