@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
+  <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 </head>
 <body>
-<h2 class="chart-title">Age and memory sentiment</h2>
 
+  <div class="container">
+    <div class="row">
+      <div class="chart-container">
+        <h2 class="chart-title">Age and memory sentiment</h2>
+      </div>
+    </div>
+  </div>
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -30,7 +37,7 @@ var xAxis = d3.select(".axis")
 var yAxis = d3.select(".axis")
     .call(d3.axisLeft(y));
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select(".chart-container").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -64,7 +71,7 @@ d3.json('/memoriesdb', function (err, data) {
       .attr("class", "label")
       .attr("x", width)
       .attr("y", -6)
-      .style("text-anchor", "end")
+      .style("text-anchor", "middle") //axis label not showing up
       .text("age");
 
   // y-axis rendering and labels
@@ -76,7 +83,7 @@ d3.json('/memoriesdb', function (err, data) {
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
-      .style("text-anchor", "end")
+      .style("text-anchor", "middle") //axis label not showing up
       .text("sentiment")
 
   // data markers
@@ -92,10 +99,10 @@ d3.json('/memoriesdb', function (err, data) {
         console.log(d.body);
        tooltip.transition()
          .duration(200)
-         .style("opacity", .9);
+         .style("opacity", 1);
        tooltip.html(d.body)
-         .style("left", "0px")
-         .style("top", "0px");
+         .style("left", (d3.event.pageX) + "px")
+         .style("top", (d3.event.pageY/2) + "px");
        })
 
  /* var legend = svg.selectAll(".legend")
