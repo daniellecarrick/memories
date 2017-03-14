@@ -35,6 +35,11 @@ body, html {
 
 #memory {
   margin: 20px 0px;
+  height: 100px;
+}
+
+#age{
+  width:100px;
 }
 
 .form-control {
@@ -64,10 +69,6 @@ textarea::-moz-placeholder {
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: #fff !important;
-}
-
-#memory {
-  height: 100px;
 }
 
 .range-selector {
