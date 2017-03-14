@@ -22,6 +22,5 @@ mongorestore --drop --db memoriesdb ./db-dump
 ```
 
 Note that `--drop` will remove any other tables added to the database that were not in the dump.
-Peter • Now
 
 
