@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
-//  api routes  >
+//  API routes  >
 app.get('/memoriesdb', function(req, res, next) {
   Memory.find(function(error, mem) {
     if (error) {
