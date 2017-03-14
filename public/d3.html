@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
 
-body {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.dot {
-  stroke: #000;
-}
-
-</style>
 
 <body>
 <script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -33,7 +17,8 @@ var x = d3.scaleLinear()
 var y = d3.scaleLinear()
     .range([height, 0]);
 
-//var color = d3.scaleOrdinal(d3.schemeCategory10);
+/* Domain of possible values is 0 to 10. Range needs to be between 0 and 1 for d3.interpolate*/
+var colors = d3.scaleLinear().domain([1,10]).range([1,0]);
 
 var xAxis = d3.select(".axis")
     .call(d3.axisBottom(x));
@@ -52,20 +37,19 @@ var svg = d3.select("body").append("svg")
 d3.csv("data.csv", function(error, data) {
   if (error) throw error;
 
+  //console.log(data);
 
-  console.log(data);
-
-
+  // ensures data are numbers
   data.forEach(function(d) {
     d.rating = +d.rating;
     d.age = +d.age;
   });
 
-  x.domain(d3.extent(data, function(d) { return d.age; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.rating; })).nice();
-  var hi = x.domain(d3.extent(data, function(d) { return d.age; })).nice();
-  console.log(hi);
-
+  // sets the min and max for each axis
+  var xscale = x.domain(d3.extent(data, function(d) { return d.age; })).nice();
+  var yscale = y.domain(d3.extent(data, function(d) { return d.rating; })).nice();
+  console.log(xscale(3));
+  // x-axis rendering and labels
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -77,6 +61,7 @@ d3.csv("data.csv", function(error, data) {
       .style("text-anchor", "end")
       .text("age");
 
+  // y-axis rendering and labels
   svg.append("g")
       .attr("class", "y axis")
       .call(d3.axisLeft(y))
@@ -92,10 +77,10 @@ d3.csv("data.csv", function(error, data) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", 3.5)
+      .attr("r", 10)
       .attr("cx", function(d) { return x(d.age); })
       .attr("cy", function(d) { return y(d.rating); })
-      .style("fill", "blue" );
+      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.rating))});
 
  /* var legend = svg.selectAll(".legend")
       .data(color.domain())
