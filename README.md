@@ -18,7 +18,7 @@ mongodump --db memoriesdb --out ./db-dump
 You can restore your local version of the mongo database to what is in the repository's database dump by running the following command from the terminal (not the mongo shell):
 
 ```
-mongorestore --drop --db memoriesdb ./db-dump
+mongorestore --drop --db memoriesdb ./db-dump/memoriesdb
 ```
 
 Note that `--drop` will remove any other tables added to the database that were not in the dump.
