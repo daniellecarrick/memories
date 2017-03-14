@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
-
 <body>
+
+<h1>Title of chart</h1>
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script>
@@ -33,7 +33,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-
+// get the data!
 d3.csv("data.csv", function(error, data) {
   if (error) throw error;
 
@@ -47,12 +47,13 @@ d3.csv("data.csv", function(error, data) {
 
   // sets the min and max for each axis
   var xscale = x.domain(d3.extent(data, function(d) { return d.age; })).nice();
-  var yscale = y.domain(d3.extent(data, function(d) { return d.rating; })).nice();
-  console.log(xscale(3));
+  // yscale contains the ratings values which are always between 1 and 10.
+  var yscale = y.domain([1, 10]);
+
   // x-axis rendering and labels
   svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + height/2 + ")")
       .call(d3.axisBottom(x))
     .append("text")
       .attr("class", "label")
@@ -103,3 +104,6 @@ d3.csv("data.csv", function(error, data) {
 
 });
 </script>
+</body>
+</html>
+
