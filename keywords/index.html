@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>keywords fetching</title>
+  <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../node_modules/font-awesome/css/font-awesome.css">
+</head>
+
+<body ng-app="appMemories"> 
+  <section ng-controller="keywordsCtrl" class="container-fluid"><!--main controller-->
+            <h1 class="text-center">keywords</h1>
+              <div class="row">
+                  <div class="col-md-12 well" ng-repeat="post in posts | orderBy: '-title' track by $index">
+                        <div class="col-md-6 text-section">
+                            <h3>{{post.text}} <span style="font-size:20px;">/ {{post.keywords}}</span></h3>
+                        </div>  
+                   </div>
+              </div>
+  </section>
+
+
+
+
+
+<!--scripts-->
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="keywordsService.js"></script>
+<script type="text/javascript" src="keywordsCtrl.js"></script>
+
+
+</body>
+</html>
