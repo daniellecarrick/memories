@@ -31,6 +31,7 @@ div.tooltip:after {
   background-color: #e1e1e1;
   width:950px;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .label {
