@@ -46,9 +46,9 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-3 col-xs-push-1 neg">
-          <label>Memory was very positive</label>
-        </div>
+          <div class="col-xs-3 col-xs-push-1 neg">
+            <label>Memory was very positive</label>
+          </div>
         </div>
       </div>
       <br>
@@ -67,6 +67,11 @@
          <div class="col-xs-3 col-xs-push-1 share">
              <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
         </div>
+        <div class="row">
+           <div ng-show="thanks">
+               <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
+           </div> 
+       </div>  
 
       </div>
     </div>
@@ -85,7 +90,8 @@
                 </div> 
                  <div class="col-xs-4 pull-left">   
                  <label>Location:</label>
-                 <select>
+                 <!--the ng model created here is for the filter afterwards"-->
+                 <select ng-model="selectbox">
                     <option ng-repeat="x in memoriesdb">{{x.location}}</option>
                     <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
                     <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
@@ -95,7 +101,7 @@
           <br><br>
             <div class="row">
                 <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
-                    <div ng-repeat="x in memoriesdb |  limitTo:5" class="card-block text-left">
+                    <div ng-repeat="x in memoriesdb | filter:{location:selectbox} |  limitTo:5" class="card-block text-left">
                         <h3 class="card-title">{{ x.location }}.</h3><h5> I was at {{ x.age }} years old</h5>
                         <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
                         <blockquote><em>{{ x.body }}</em><blockquote>
@@ -107,7 +113,7 @@
  <section class="d3">
      <div class="container">
          <div class="row">
-          <h1>Age and me.mory sentiment</h1>
+          <h1>age and me.mory sentiment</h1>
             <div class="chart-container"></div>
          </div>
     </div>
