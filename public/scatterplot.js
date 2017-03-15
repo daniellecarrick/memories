@@ -76,10 +76,14 @@ d3.json('/memoriesdb', function (err, data) {
       .attr("cx", function(d) { return x(d.age); })
       .attr("cy", function(d) { return y(d.posNeg); })
       .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); }) // using a color scale to fill dots based on rating
+      .style("opacity", 0.8)
       .on("mouseover", function(d) {
        tooltip.transition()
          .duration(200)
          .style("opacity", 1);
+         // make the bubble a little bigger
+        d3.select(this).transition()
+          .attr("r", 15);
        tooltip.html(d.body)
          .style("left", (d3.event.pageX) + "px")
          .style("top", (d3.event.pageY/2) + "px");
@@ -88,7 +92,11 @@ d3.json('/memoriesdb', function (err, data) {
         tooltip.transition()
         .duration(200)
         .style("opacity", 0);
+      d3.select(this).transition()
+          .attr("r", 10);
       })
+
+
 
  /* var legend = svg.selectAll(".legend")
       .data(color.domain())
