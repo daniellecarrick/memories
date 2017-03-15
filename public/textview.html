@@ -15,44 +15,49 @@
             <div class="row">
                 <h1>me.mories</h1>
                 <em>choose your memory</em><br><br>
-                <div class="col-xs-4 pull-left">
+
+                <div class="col-xs-4 col-xs-push-1">
                     <label>Age: </label> <button>0-20</button> <button>20-30</button> <button>30-40</button> <button>50+</button>
                 </div>
                 <div class="col-xs-4 col-xs-pull-1 pull-right">
-                    Feeling: <button>:)</button> <button>:(</button>
+                    Feeling: <button style="background-color:#ffd12d;color:#000;">:)</button><button style="background-color:#000;color:#fff;">:(</button>
                 </div> 
-                 <div class="col-xs-4 text-center">   
+                 <div class="col-xs-4 pull-left">   
                  <label>Location:</label>
                  <select>
-                    <option ng-repeat="x in uniqueLocs">{{x.location}}</option>
+                    <option ng-repeat="x in memoriesdb">{{x.location}}</option>
                     <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
                     <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
                 </select>
             </div>
-            <br>
+            <br><br>
             <div class="row">
-                <div class="card card-inverse" style="background-color: #333; border-color: #333;">
-                    <div ng-repeat="x in memoriesdb | orderBy:'-age' | limitTo:5" class="card-block">
+                <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
+                    <div ng-repeat="x in memoriesdb | limitTo:5" class="card-block text-left">
                         <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
                         <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
-                        <p class="card-text">{{ x.body }}</p>
-                  </div>
+                        <blockquote><em>{{ x.body }}</em><blockquote>
+                     </div>
                 </div>
-                <div class="card card-inverse" style="background-color: #333; border-color: #333;">
-                    <div ng-repeat="x in memoriesdb | orderBy:'-posNeg' | limitTo:5" class="card-block">
-                        <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
-                        <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
-                        <p class="card-text">{{ x.body }}</p>
-                    </div>
-                </div>
-                <div class="card card-inverse" style="background-color: #333; border-color: #333;">
-                    <div ng-repeat="x in memoriesdb | orderBy:'-location' | limitTo:5" class="card-block">
+            </div>
+            <div class="row">
+                <div class="card col-md-8 col-md-push-3">    
+                    <div ng-repeat="x in memoriesdb | limitTo:5" class="card-block text-left">
                         <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
                         <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
                         <p class="card-text">{{ x.body }}</p>
                     </div>
                 </div>
             </div>
+            <div class="row">   
+                 <div class="card col-md-8 col-md-push-3">
+                    <div ng-repeat="x in memoriesdb | limitTo:5" class="card-block">
+                        <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
+                        <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
+                        <p class="card-text">{{ x.body }}</p>
+                    </div>
+                </div>
+            </div><!--end row-->
         </div>
     </div>
 
