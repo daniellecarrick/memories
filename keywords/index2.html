@@ -2,7 +2,7 @@
 <head>
   <title>keywords fetching and location</title>
   <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../public/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body ng-app="appMemories" ng-controller="keywordsCtrl"> 
@@ -52,7 +52,10 @@
 
         <div class="col-md-6">
           <label class="pull-left" for="location">Location of memory</label>
-          <input class="form-control padding" type="text" name="location" placeholder="location" ng-model="location">{{userLocation}}
+          <input class="form-control padding" type="text" name="country" placeholder="country" ng-model="country" ng-keyup="complete(country)"/>
+          <ul ng-model="hidethis" ng-hide="hidethis">
+            <li ng-repeat="countrydata in filterCountry" ng-click="fillTextBox(countrydata)">{{countrydata}}</li>
+          </ul><!-- {{userLocation}} -->
         </div>
 
           <button ng-click="getLocationApi(location)" class="btn btn-default" type="button">Share</button>
