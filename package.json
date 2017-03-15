@@ -24,6 +24,7 @@
     "angular": "^1.6.3",
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
+    "d3": "^4.7.3",
     "express": "^4.15.2",
     "mongoose": "^4.8.7"
   }
