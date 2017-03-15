@@ -5,10 +5,14 @@
   <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="d3-style.css">
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <title>me.mories</title>
 </head>
 <body ng-controller="mainController">
-  <div class="landing-page">
+<div class="landing-page">
+ <section class="intro"> 
     <div ng-model="container" class="container">
       <div class="row">
         <h1>What is your most important memory?</h1> <br>
@@ -66,8 +70,51 @@
 
       </div>
     </div>
-  </div>
+ </section>
+ <section class="textview">
+  <div ng-model="container" class="container">
+        <div class="row">
+                <h1>me.mories</h1>
+                <em>take a stroll down memory lane</em><br><br>
 
+                <div class="col-xs-4 col-xs-push-1">
+                    <label>Age: </label> <button>0-20</button> <button>20-30</button> <button>30-40</button> <button>50+</button>
+                </div>
+                <div class="col-xs-4 col-xs-pull-1 pull-right">
+                    Feeling: <button style="background-color:#ffd12d;color:#000;">:)</button><button style="background-color:#000;color:#fff;">:(</button>
+                </div> 
+                 <div class="col-xs-4 pull-left">   
+                 <label>Location:</label>
+                 <select>
+                    <option ng-repeat="x in memoriesdb">{{x.location}}</option>
+                    <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
+                    <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
+                </select>
+                </div>
+         </div><!--end row--> 
+          <br><br>
+            <div class="row">
+                <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
+                    <div ng-repeat="x in memoriesdb |  limitTo:5" class="card-block text-left">
+                        <h3 class="card-title">{{ x.location }}.</h3><h5> I was at {{ x.age }} years old</h5>
+                        <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
+                        <blockquote><em>{{ x.body }}</em><blockquote>
+                     </div>
+                </div>
+            </div>     
+    </div><!--end container-->
+ </section>
+ <section class="d3">
+     <div class="container">
+         <div class="row">
+          <h1>Age and me.mory sentiment</h1>
+            <div class="chart-container"></div>
+         </div>
+    </div>
+ </section>     
+</div>
+  
+  <script src="scatterplot.js"></script>
   <script src="angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services/memFactory.js"></script>
