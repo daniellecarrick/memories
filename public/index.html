@@ -28,7 +28,7 @@
       <div class="row">
         <div class="range-selector">
           <div class="col-xs-3 col-xs-push-3 neg">
-          <label>Memory was very negative</label>
+          <label><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></label>
         </div>
         <div class="col-xs-6 col-xs-push-3 scale">
           <div class="btn-toolbar" role="toolbar">
@@ -48,7 +48,7 @@
           </div>
         </div>
           <div class="col-xs-3 col-xs-push-1 neg">
-            <label>Memory was very positive</label>
+            <label><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></label>
           </div>
         </div>
       </div>
@@ -59,7 +59,6 @@
                 <input class="form-control padding" placeholder="0" id="age"min="0" max="100" type="number" name="age" ng-model="newMem.age">
                 <!-- test input {{ newMem.age }} -->
             </div>
-
             <div class="col-xs-6 col-xs-push-2 loc">
               <label class="pull-left" for="location">Location of memory</label>
                <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
@@ -82,10 +81,14 @@
   <div ng-model="container" class="container">
     <div class="row">
       <h1>me.mories</h1>
-      <em>take a stroll down memory lane</em><br><br>
+      <p><em>take a stroll down memory lane</em></p>
       <!--filter buttons-->
       <div class="col-xs-4 col-xs-push-1">
-          <label>Age: </label> <button class="ageBtn">0-20</button> <button class="ageBtn">20-30</button> <button class="ageBtn">30-40</button> <button class="ageBtn">50+</button>
+          <label>Age: </label>
+          <button class="ageBtn">0-20</button>
+          <button class="ageBtn">20-30</button>
+          <button class="ageBtn">30-40</button>
+          <button class="ageBtn">50+</button>
       </div>
       <div class="col-xs-4 col-xs-pull-1 pull-right">
           Feeling: <button ng-model="posMem" style="background-color:#ffd12d;color:#000;">:)</button><button ng-model="negMem" style="background-color:#000;color:#fff;">:(</button>
