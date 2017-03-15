@@ -99,7 +99,7 @@
           <br><br>
             <div class="row">
                 <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
-                    <div ng-repeat="x in memoriesdb |  limitTo:5" class="card-block text-left">
+                    <div ng-repeat="x in memoriesdb | filter:{location:selectbox} |  limitTo:5" class="card-block text-left">
                         <h3 class="card-title">{{ x.location }}.</h3><h5> I was at {{ x.age }} years old</h5>
                         <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
                         <blockquote><em>{{ x.body }}</em><blockquote>
