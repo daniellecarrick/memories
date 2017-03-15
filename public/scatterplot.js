@@ -67,15 +67,15 @@ d3.json('/memoriesdb', function (err, data) {
       .style("text-anchor", "middle") //axis label not showing up
       .text("sentiment")
 
+  var dots = svg.selectAll(".dot");
   // data markers
-  svg.selectAll(".dot")
-      .data(data)
+  dots.data(data)
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 10)
       .attr("cx", function(d) { return x(d.age); })
       .attr("cy", function(d) { return y(d.posNeg); })
-      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); })
+      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); }) // using a color scale to fill dots based on rating
       .on("mouseover", function(d) {
        tooltip.transition()
          .duration(200)
@@ -84,6 +84,11 @@ d3.json('/memoriesdb', function (err, data) {
          .style("left", (d3.event.pageX) + "px")
          .style("top", (d3.event.pageY/2) + "px");
        })
+      .on("mouseout", function(d) {
+        tooltip.transition()
+        .duration(200)
+        .style("opacity", 0);
+      })
 
  /* var legend = svg.selectAll(".legend")
       .data(color.domain())
