@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="meMories">
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>me.mories</title>
+</head>
+<body ng-controller="mainController">
+  <div class="landing-page">
+    <div ng-model="container" class="container">
+      <div class="row">
+        <h1>What is your most important memory?</h1>
+        <p>It can be big or small, happy or sad, as long as it's important to you.</p>
+        <!-- Form starts here -->
+        <div class="col-md-12">
+            <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
+            <!-- test input {{ newMem.body }} -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="range-selector">
+          <div class="col-xs-3">
+          <label>Memory was very negative</label>
+        </div>
+        <div class="col-xs-6">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected">
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 1">1</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 2">2</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 3">3</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 4">4</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 5">5</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 6">6</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 7">7</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 8">8</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 9">9</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 10">10</button>
+              <!-- test input {{ newMem.posNeg }} -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <label>Memory was very positive</label>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left" for="age">Age at memory</label>
+            <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
+            <!-- test input {{ newMem.age }} -->
+        </div>
+        <div class="col-md-6">
+          <label class="pull-left" for="location">Location of memory</label>
+           <input class="form-control padding" type="text" name="country" placeholder="country" ng-model="country" ng-keyup="complete(country)"/>
+           
+          <ul ng-model="hidethis" ng-hide="hidethis">
+            <li ng-repeat="countrydata in filterCountry" ng-click="fillTextBox(countrydata)">{{countrydata}}</li>
+          </ul>
+          <!-- test input {{ newMem.location }} -->
+        </div>
+        <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services/memFactory.js"></script>
+  <script src="js/controllers/mainController.js"></script>
+</body>
+</html>
