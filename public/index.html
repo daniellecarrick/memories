@@ -18,7 +18,7 @@
       <div class="row">
         <h1>What is your most important memory?</h1>
         <!-- begin first row -->
-        <div class="col-sm-12">
+        <div class="col-sm-8 col-sm-offset-2">
           <p>It can be big or small, happy or sad, as long as it's important to you.</p>
             <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
             <!-- test input {{ newMem.body }} -->
@@ -31,7 +31,7 @@
           <div class="col-xs-3 neg">
             <label><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></label>
           </div>
-        <div class="col-xs-6 scale">
+        <div class="col-sm-6 scale">
           <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected">
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 1">1</button>
@@ -48,56 +48,56 @@
             </div>
           </div>
         </div>
-          <div class="col-xs-3 pos">
+          <div class="col-sm-3 pos">
             <label><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></label>
           </div>
         </div>
       </div>
       <!--begin third row-->
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-sm-2 col-sm-offset-2">
           <label class="pull-left" for="age">Age at memory</label>
             <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
             <!-- test input {{ newMem.age }} -->
         </div>
-        <div class="col-xs-8 loc">
+        <div class="col-sm-6 loc">
           <label class="pull-left" for="location">Location of memory</label>
            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
           <!-- test input {{ newMem.location }} -->
         </div>
-        <div class="row">
-          <div class="col-xs-3 share">
-            <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div ng-show="thanks">
-               <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
-            </div>
-          </div>
-        </div>
       </div><!--end row-->
+      <div class="row">
+        <div class="share">
+          <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div ng-show="thanks">
+            <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
+          </div>
+        </div>
+      </div>
     </div><!--end container-->
   </div>
  </section>
  <!-- TEXT VIEW -->
  <section class="textview">
   <div ng-model="container" class="container">
-    <div class="row">
-      <p><em>take a stroll down memory lane</em></p>
+    <h2>Explore memories</h2>
+      <div class="row">
       <!--filter buttons-->
-      <div class="col-xs-4">
-          <label>Age: </label>
-          <button class="ageBtn">0-20</button>
-          <button class="ageBtn">20-30</button>
-          <button class="ageBtn">30-40</button>
-          <button class="ageBtn">50+</button>
-      </div>
-      <div class="col-xs-4 pull-right">
-          Feeling: <button ng-model="posMem" style="background-color:#ffd12d;color:#000;">:)</button><button ng-model="negMem" style="background-color:#000;color:#fff;">:(</button>
-      </div>
-      <div class="col-xs-4 pull-left">
+        <div class="col-xs-4">
+            <label>Age: </label>
+            <button class="ageBtn">0-20</button>
+            <button class="ageBtn">20-30</button>
+            <button class="ageBtn">30-40</button>
+            <button class="ageBtn">50+</button>
+        </div>
+        <div class="col-xs-4 pull-right">
+            Feeling: <button ng-model="posMem" style="background-color:#ffd12d;color:#000;">:)</button><button ng-model="negMem" style="background-color:#000;color:#fff;">:(</button>
+        </div>
+        <div class="col-xs-4 pull-left">
         <label>Location:</label>
        <!--the ng model created here is for the filter afterwards"-->
         <select id="sel" ng-model="selectbox">
