@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="meMories">
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>me.mories</title>
+</head>
+
+<body ng-controller="mainController">
+    <div class="landing-page">
+        <div class="container">
+            <div class="row">
+                <h1>me.mories</h1>
+                <em>choose your memory</em><br><br>
+
+                <div class="col-xs-4 col-xs-push-1">
+                    <label>Age: </label> <button>0-20</button> <button>20-30</button> <button>30-40</button> <button>50+</button>
+                </div>
+                <div class="col-xs-4 col-xs-pull-1 pull-right">
+                    Feeling: <button style="background-color:#ffd12d;color:#000;">:)</button><button style="background-color:#000;color:#fff;">:(</button>
+                </div> 
+                 <div class="col-xs-4 pull-left">   
+                 <label>Location:</label>
+                 <select>
+                    <option ng-repeat="x in memoriesdb">{{x.location}}</option>
+                    <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
+                    <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
+                </select>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
+                    <div ng-repeat="x in memoriesdb | limitTo:5" class="card-block text-left">
+                        <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
+                        <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
+                        <blockquote><em>{{ x.body }}</em><blockquote>
+                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card col-md-8 col-md-push-3">    
+                    <div ng-repeat="x in memoriesdb | limitTo:5" class="card-block text-left">
+                        <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
+                        <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
+                        <p class="card-text">{{ x.body }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">   
+                 <div class="card col-md-8 col-md-push-3">
+                    <div ng-repeat="x in memoriesdb | limitTo:5" class="card-block">
+                        <h3 class="card-title">In {{ x.location }} at age {{ x.age }}</h3>
+                        <h5>{{ x.posNeg }}/10 on the happiness scale</h5>
+                        <p class="card-text">{{ x.body }}</p>
+                    </div>
+                </div>
+            </div><!--end row-->
+        </div>
+    </div>
+
+    <script src="angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/memFactory.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+</body>
+
+</html>
