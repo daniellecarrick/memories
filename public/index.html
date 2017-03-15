@@ -84,18 +84,24 @@
  <!-- TEXT VIEW -->
  <section class="textview">
   <div ng-model="container" class="container">
-    <h2>Explore memories</h2>
+    <h1>Explore memories</h1>
       <div class="row">
       <!--filter buttons-->
         <div class="col-xs-4">
             <label>Age: </label>
-            <button class="ageBtn">0-20</button>
-            <button class="ageBtn">20-30</button>
-            <button class="ageBtn">30-40</button>
-            <button class="ageBtn">50+</button>
+            <button class="btn btn-default ageBtn">0-20</button>
+            <button class="btn btn-default ageBtn">20-30</button>
+            <button class="btn btn-default ageBtn">30-40</button>
+            <button class="btn btn-default ageBtn">50+</button>
         </div>
         <div class="col-xs-4 pull-right">
-            Feeling: <button ng-model="posMem" style="background-color:#ffd12d;color:#000;">:)</button><button ng-model="negMem" style="background-color:#000;color:#fff;">:(</button>
+            Feeling:
+            <button class="btn btn-default" ng-model="posMem">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-default" ng-model="negMem">
+              <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+            </button>
         </div>
         <div class="col-xs-4 pull-left">
         <label>Location:</label>
@@ -110,11 +116,12 @@
     </div><!--end row-->
       <br><br>
         <div class="row">
-          <div class="card col-md-8"> <!--| orderBy:'-age'-->
+          <div class="card col-md-8 col-md-offset-2"> <!--| orderBy:'-age'-->
             <div ng-repeat="x in memoriesdb | filter:{location:selectbox} |  limitTo:5" class="card-block text-left">
-                <h3 class="card-title">{{ x.location }}.</h3><h5> I was at {{ x.age }} years old</h5>
-                <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
-                <blockquote><em>{{ x.body }}</em><blockquote>
+              <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
+              <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
+              <em>{{ x.body }}</em>
+              <hr>
              </div>
           </div>
         </div>
