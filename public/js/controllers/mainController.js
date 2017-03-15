@@ -5,6 +5,7 @@ $scope.thanks = false; //hides thank you
     //&& $scope.posNeg && $scope.age && $scope.location
    // if($scope.age > 0){
       memFactory.addMem(newMem).then(function(mem) {
+      $scope.thanks = true;
       $scope.memoriesdb.push(mem);
       $scope.thanks = true; //reveals thankyou
       console.log(mem.body, mem.age);
