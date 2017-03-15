@@ -83,7 +83,7 @@
         <div class="row">
                 <h1>me.mories</h1>
                 <em>take a stroll down memory lane</em><br><br>
-
+                <!--filter buttons-->
                 <div class="col-xs-4 col-xs-push-1">
                     <label>Age: </label> <button>0-20</button> <button>20-30</button> <button>30-40</button> <button>50+</button>
                 </div>
@@ -94,7 +94,7 @@
                  <label>Location:</label>
                  <!--the ng model created here is for the filter afterwards"-->
                  <select ng-model="selectbox">
-                    <option ng-repeat="x in memoriesdb">{{x.location}}</option>
+                    <option ng-repeat="x in uniqueLocs | orderBy:location">{{x}}</option>
                     <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
                     <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
                 </select>
