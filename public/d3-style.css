@@ -36,10 +36,11 @@ div.tooltip:after {
 
 /* ticks */
 .x.axis line, .y.axis line {
-  stroke: grey;
-  stroke-width: 1px;
+  stroke: none;
+  stroke-width: 0px;
 }
 
+/* axis line */
 .x.axis path, .y.axis path {
   stroke: grey;
   stroke-width: 2px;

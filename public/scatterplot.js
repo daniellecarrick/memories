@@ -17,6 +17,7 @@ var xAxis = d3.select(".axis")
 var yAxis = d3.select(".axis")
     .call(d3.axisLeft(y));
 
+
 var svg = d3.select(".chart-container").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -76,7 +77,6 @@ d3.json('/memoriesdb', function (err, data) {
       .attr("cy", function(d) { return y(d.posNeg); })
       .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); })
       .on("mouseover", function(d) {
-        console.log(d.body);
        tooltip.transition()
          .duration(200)
          .style("opacity", 1);
