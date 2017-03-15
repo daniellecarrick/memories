@@ -53,22 +53,26 @@
       </div>
       <br>
       <div class="row">
-        <div class="col-xs-3 col-xs-push-3">
-          <label class="pull-left" for="age">Age at memory</label>
-            <input class="form-control padding" placeholder="0" id="age"min="0" max="100" type="number" name="age" ng-model="newMem.age">
-            <!-- test input {{ newMem.age }} -->
-        </div>
+          <div class="col-xs-3 col-xs-push-3">
+            <label class="pull-left" for="age">Age at memory</label>
+              <input class="form-control padding" placeholder="0" id="age"min="0" max="100" type="number" name="age" ng-model="newMem.age">
+              <!-- test input {{ newMem.age }} -->
+          </div>
 
-        <div class="col-xs-6 col-xs-push-2 loc">
-          <label class="pull-left" for="location">Location of memory</label>
-           <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
-          <!-- test input {{ newMem.location }} -->
-        </div>
-         <div class="col-xs-3 col-xs-push-1 share">
-             <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
-        </div>
-
+          <div class="col-xs-6 col-xs-push-2 loc">
+            <label class="pull-left" for="location">Location of memory</label>
+             <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
+            <!-- test input {{ newMem.location }} -->
+          </div>
+           <div class="col-xs-3 col-xs-push-1 share">
+               <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+          </div>
       </div>
+      <div class="row">
+           <div ng-show="thanks">
+              <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
+          </div> 
+      </div>  
     </div>
  </section>
  <section class="textview">
@@ -107,7 +111,7 @@
  <section class="d3">
      <div class="container">
          <div class="row">
-          <h1>Age and me.mory sentiment</h1>
+          <h1>age and me.mory sentiment</h1>
             <div class="chart-container"></div>
          </div>
     </div>

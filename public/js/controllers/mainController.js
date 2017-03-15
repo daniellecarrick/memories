@@ -1,10 +1,12 @@
 app.controller('mainController', function($scope, memFactory) {
+$scope.thanks = false; //hides thank you
 
   $scope.addMem = function(newMem) {
     //&& $scope.posNeg && $scope.age && $scope.location
    // if($scope.age > 0){
       memFactory.addMem(newMem).then(function(mem) {
       $scope.memoriesdb.push(mem);
+      $scope.thanks = true; //reveals thankyou
       console.log(mem.body, mem.age);
     });
       //clearing fields but not on view
