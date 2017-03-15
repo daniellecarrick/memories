@@ -13,15 +13,23 @@
     <div class="landing-page">
         <div class="container">
             <div class="row">
-              Age: <button>0-20</button> <button>20-30</button> <button>30-40</button> <button>50+</button><br><br>
-              Feeling: <button>:)</button> <button>:(</button><br><br>
-              Location:
-              <select>
-                <option ng-repeat="x in uniqueLocs">{{x.location}}</option>
-                <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
-                <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
-              </select>
+                <h1>me.mories</h1>
+                <em>choose your memory</em><br><br>
+                <div class="col-xs-4 pull-left">
+                    <label>Age: </label> <button>0-20</button> <button>20-30</button> <button>30-40</button> <button>50+</button>
+                </div>
+                <div class="col-xs-4 col-xs-pull-1 pull-right">
+                    Feeling: <button>:)</button> <button>:(</button>
+                </div> 
+                 <div class="col-xs-4 text-center">   
+                 <label>Location:</label>
+                 <select>
+                    <option ng-repeat="x in uniqueLocs">{{x.location}}</option>
+                    <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
+                    <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
+                </select>
             </div>
+            <br>
             <div class="row">
                 <div class="card card-inverse" style="background-color: #333; border-color: #333;">
                     <div ng-repeat="x in memoriesdb | orderBy:'-age' | limitTo:5" class="card-block">

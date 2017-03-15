@@ -30,18 +30,48 @@ body, html {
 .btn-default {
     color: white;
     background-color: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.5);;
+    border-color: rgba(255,255,255,0.5);
+}
+.btn-default:active,
+.btn-default.active {
+  background-color: rgba(96,70,135,0.7);
+  color:red;
 }
 
 #memory {
   margin: 20px 0px;
   height: 100px;
+  width:570px;
+  margin: 0 auto;
+}
+
+.neg{
+  font-size: 16px;
+  width: 100px;
+}
+
+.scale{
+  margin-left: 0px;
+  padding-left: 25px;
 }
 
 #age{
   width:100px;
+  text-align: center;
 }
 
+select{
+  width: 200px;
+}
+
+.loc{
+  margin-top: 1px;
+  width: 300px;
+}
+
+.share{
+  margin-top: 40px;
+}
 .form-control {
   color: white;
   background-color: rgba(255,255,255,0.1);
@@ -51,6 +81,8 @@ body, html {
 .input-group, .padding, textarea {
   margin: 40px 0px;
 }
+
+
 
 /*forcing white placeholder*/
 
@@ -71,6 +103,14 @@ textarea:-ms-input-placeholder {
   color: #fff !important;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 .range-selector {
   margin: 20px 0px 50px 0px;
 }
+
+
