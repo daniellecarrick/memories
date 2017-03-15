@@ -1,23 +1,29 @@
 app.factory('memFactory', function($http) {
 
-  var memFactory = {};
+    var memFactory = {};
 
-  memFactory.getMems = function() {
-    return $http.get('/memoriesdb')
-      .then(function(response) {
-        return response.data
-      }, function(err) {
-      });
-  };
+    memFactory.getMems = function() {
+        return $http.get('/memoriesdb')
+            .then(function(response) {
+                return response.data
+            }, function(err) {});
+    };
 
-  memFactory.addMem = function(newMem) {
-    return $http.post('/memoriesdb', newMem)
-      .then(function(response) {
-        return response.data
-      }, function(err) {
-        console.error(err)
-      });
-  };
+    memFactory.getUniqueLocs = function() {
+        return $http.get('/uniqueLocs')
+            .then(function(response) {
+                return response.data
+            }, function(err) {});
+    };
 
-  return memFactory;
+    memFactory.addMem = function(newMem) {
+        return $http.post('/memoriesdb', newMem)
+            .then(function(response) {
+                return response.data
+            }, function(err) {
+                console.error(err)
+            });
+    };
+
+    return memFactory;
 });
