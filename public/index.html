@@ -5,6 +5,9 @@
   <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="d3-style.css">
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <title>me.mories</title>
 </head>
 <body ng-controller="mainController">
@@ -102,14 +105,16 @@
     </div><!--end container-->
  </section>
  <section class="d3">
- <div class="row">
-                <div class="col-md-8 col-md-push-3">    
-                    <h1>sketches</h1>
-                </div>
-            </div>
+     <div class="container">
+         <div class="row">
+          <h1>Age and me.mory sentiment</h1>
+            <div class="chart-container"></div>
+         </div>
+    </div>
  </section>     
 </div>
-
+  
+  <script src="scatterplot.js"></script>
   <script src="angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services/memFactory.js"></script>
