@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html ng-app="meMories">
 <head>
@@ -53,6 +54,7 @@
       </div>
       <br>
       <div class="row">
+<<<<<<< HEAD
         <div class="col-xs-3 col-xs-push-3">
           <label class="pull-left" for="age">Age at memory</label>
             <input class="form-control padding" placeholder="0" id="age"min="0" max="100" type="number" name="age" ng-model="newMem.age">
@@ -72,8 +74,26 @@
                <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
            </div> 
        </div>  
+          <div class="col-xs-3 col-xs-push-3">
+            <label class="pull-left" for="age">Age at memory</label>
+              <input class="form-control padding" placeholder="0" id="age"min="0" max="100" type="number" name="age" ng-model="newMem.age">
+              <!-- test input {{ newMem.age }} -->
+          </div>
 
+          <div class="col-xs-6 col-xs-push-2 loc">
+            <label class="pull-left" for="location">Location of memory</label>
+             <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
+            <!-- test input {{ newMem.location }} -->
+          </div>
+           <div class="col-xs-3 col-xs-push-1 share">
+               <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+          </div>
       </div>
+      <div class="row">
+           <div ng-show="thanks">
+              <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
+          </div> 
+      </div>  
     </div>
  </section>
  <section class="textview">
@@ -102,6 +122,7 @@
             <div class="row">
                 <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
                     <div ng-repeat="x in memoriesdb | filter:{location:selectbox} |  limitTo:5" class="card-block text-left">
+
                         <h3 class="card-title">{{ x.location }}.</h3><h5> I was at {{ x.age }} years old</h5>
                         <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
                         <blockquote><em>{{ x.body }}</em><blockquote>
