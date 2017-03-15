@@ -9,10 +9,11 @@
 </head>
 <body ng-controller="mainController">
   <div class="landing-page">
-    <div class="container">
+    <div ng-model="container" class="container">
       <div class="row">
-        <h1>What is your most important memory?</h1>
+        <h1>What is your most important memory?</h1> <br>
         <p>It can be big or small, happy or sad, as long as it's important to you.</p>
+
         <!-- Form starts here -->
         <div class="col-md-12">
             <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
@@ -21,10 +22,10 @@
       </div>
       <div class="row">
         <div class="range-selector">
-          <div class="col-xs-3">
+          <div class="col-xs-3 col-xs-push-3 neg">
           <label>Memory was very negative</label>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-xs-push-3 scale">
           <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected">
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 1">1</button>
@@ -41,28 +42,28 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-3 col-xs-push-1 neg">
           <label>Memory was very positive</label>
         </div>
         </div>
       </div>
+      <br>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-3 col-xs-push-3">
           <label class="pull-left" for="age">Age at memory</label>
-            <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
+            <input class="form-control padding" placeholder="0" id="age"min="0" max="100" type="number" name="age" ng-model="newMem.age">
             <!-- test input {{ newMem.age }} -->
         </div>
-        <div class="col-md-6">
-          <label class="pull-left" for="location">Location of memory</label>
 
-          <select class="form-control padding" type="text" name="location" ng-model="newMem.location">
-              <option disabled selected value="choose city">choose city</option>
-              <option value="Tel Aviv">Tel Aviv</option>
-              <option value="Los Angeles">Los Angeles</option>
-          </select>  
+        <div class="col-xs-6 col-xs-push-2 loc">
+          <label class="pull-left" for="location">Location of memory</label>
+           <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
           <!-- test input {{ newMem.location }} -->
         </div>
-        <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+         <div class="col-xs-3 col-xs-push-1 share">
+             <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+        </div>
+
       </div>
     </div>
   </div>
