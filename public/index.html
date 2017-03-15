@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html ng-app="meMories">
 <head>
@@ -89,7 +90,7 @@
                 </div> 
                  <div class="col-xs-4 pull-left">   
                  <label>Location:</label>
-                 <select>
+                 <select ng-model="selectbox">
                     <option ng-repeat="x in memoriesdb">{{x.location}}</option>
                     <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
                     <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
@@ -99,7 +100,7 @@
           <br><br>
             <div class="row">
                 <div class="card col-md-8 col-md-push-2"> <!--| orderBy:'-age'-->
-                    <div ng-repeat="x in memoriesdb | filter:{location:selectbox} |  limitTo:5" class="card-block text-left">
+                    <div ng-repeat="x in memoriesdb | filter:{location:selectbox, } |  limitTo:5" class="card-block text-left">
                         <h3 class="card-title">{{ x.location }}.</h3><h5> I was at {{ x.age }} years old</h5>
                         <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
                         <blockquote><em>{{ x.body }}</em><blockquote>
