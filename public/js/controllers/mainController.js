@@ -1,6 +1,5 @@
 app.controller('mainController', function($scope, memFactory) {
 
-   
   $scope.addMem = function(newMem) {
     //&& $scope.posNeg && $scope.age && $scope.location
    // if($scope.age > 0){
