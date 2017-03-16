@@ -25,8 +25,6 @@ app.get('/uniqueLocs', function(req, res, next) {
   });
 });
 
-
-//posMems - WORKING
 app.get('/posMems', function(req, res, next) {
   Memory.find({'posNeg': {$gt: '5'}}, function(error, mem) {
     if (error) {
@@ -38,7 +36,6 @@ app.get('/posMems', function(req, res, next) {
   });
 });
 
-//negMems - WORKING
 app.get('/negMems', function(req, res, next) {
   Memory.find({'posNeg': {$lt: '6'}}, function(error, mem) {
     if (error) {
@@ -50,19 +47,82 @@ app.get('/negMems', function(req, res, next) {
   });
 });
 
-//app.get childhood
+app.get('/childhood', function(req, res, next) {
+  Memory.find({'age': {$lt: '13'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
-//app.get teens
+app.get('/teens', function(req, res, next) {
+  Memory.find({'age': {$lt: '20', $gt: '12'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
-//app.get 20s
+app.get('/twenties', function(req, res, next) {
+  Memory.find({'age': {$lt: '30', $gt: '19'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
-//app.get 30s
+app.get('/thirties', function(req, res, next) {
+  Memory.find({'age': {$lt: '40', $gt: '29'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
-//app.get 40s
+app.get('/forties', function(req, res, next) {
+  Memory.find({'age': {$lt: '50', $gt: '39'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
-//app.get 50s
+app.get('/fifties', function(req, res, next) {
+  Memory.find({'age': {$lt: '60', $gt: '49'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
-//app.get 60+
+app.get('/sixtyPlus', function(req, res, next) {
+  Memory.find({'age': {$gt: '59'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
 
 app.get('/memoriesdb', function(req, res, next) {
   Memory.find(function(error, mem) {
