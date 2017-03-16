@@ -1,16 +1,30 @@
 app.controller('mainController', function($scope, memFactory) {
     $scope.thanks = false; //hides thank you
 
-     $scope.displayPosMem = function(){
-        var filterMem = $scope.posMems;
-        console.log(filterMem);
-        alert('im positive!');
+    // default form variables
+    $scope.maxPosMem = 10;
+    $scope.minPosMem = 0;
+    $scope.minAge = 0;
+    $scope.maxAge = 100;
+
+    $scope.setAgeMinMax = function(min, max) {
+        $scope.minAge = min;
+        $scope.maxAge = max;
+        console.log($scope.minAge, $scope.maxAge);
+    }
+
+    $scope.displayPosMem = function(){
+        $scope.maxPosMem = 10;
+        $scope.minPosMem = 6;
+        //var filterMem = $scope.posMems;
+        console.log($scope.maxPosMem, $scope.minPosMem);
     };
 
-     $scope.displayNegMem = function(){
-         var filterMem = $scope.negMems;
-         console.log(filterMem);
-         alert('im negative!');
+    $scope.displayNegMem = function(){
+        $scope.maxPosMem = 5;
+        $scope.minPosMem = 1;
+        //var filterMem = $scope.negMems;
+        console.log(filterMem);
     };
 
     $scope.addMem = function(newMem) {
@@ -42,17 +56,17 @@ app.controller('mainController', function($scope, memFactory) {
 
 // positive and negative memory scopes:
 
-    memFactory.getPosMems().then(function(posMems) {
+/*    memFactory.getPosMems().then(function(posMems) {
         $scope.posMems = posMems;
     });
 
     memFactory.getNegMems().then(function(negMems) {
         $scope.negMems = negMems;
-    });
+    });*/
 
 // age grouping scopes:
 
-memFactory.getChildhood().then(function(childhood) {
+/*memFactory.getChildhood().then(function(childhood) {
     $scope.childhood = childhood;
 });
 
@@ -78,6 +92,6 @@ memFactory.getFifties().then(function(fifties) {
 
 memFactory.getSixtyPlus().then(function(sixtyPlus) {
     $scope.sixtyPlus = sixtyPlus;
-});
+});*/
 
 });

@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
 //  API routes  >
-app.get('/uniqueLocs', function(req, res, next) {
+/*app.get('/uniqueLocs', function(req, res, next) {
   Memory.distinct('location', function(error, mem) {
     if (error) {
       console.error(error)
@@ -36,8 +36,8 @@ app.get('/posMems', function(req, res, next) {
   });
 });
 
-app.get('/negMems', function(req, res, next) {
-  Memory.find({'posNeg': {$lt: '6'}}, function(error, mem) {
+app.get('/Mems', function(req, res, next) {
+  Memory.find({'posNeg': {$lt: req.params.posNeg}}, function(error, mem) {
     if (error) {
       console.error(error)
       return next(error);
@@ -122,10 +122,10 @@ app.get('/sixtyPlus', function(req, res, next) {
       res.send(mem);
     }
   });
-});
+});*/
 
-app.get('/memoriesdb', function(req, res, next) {
-  Memory.find(function(error, mem) {
+app.get('/memoriesdb:minAge', function(req, res, next) {
+  Memory.find({'age': {$gt: req.query.minAge}}, function(error, mem) {
     if (error) {
       console.error(error)
       return next(error);

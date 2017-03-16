@@ -21,7 +21,7 @@ app.factory('memFactory', function($http) {
     };
 
 //  memories by quality:
-
+/*
     memFactory.getPosMems = function() {
         return $http.get('/posMems')
             .then(function(response) {
@@ -30,7 +30,7 @@ app.factory('memFactory', function($http) {
     };
 
     memFactory.getNegMems = function() {
-        return $http.get('/negMems')
+        return $http.get('/mems?negMems=6')
             .then(function(response) {
                 return response.data
             }, function(err) {});
@@ -85,7 +85,7 @@ app.factory('memFactory', function($http) {
             .then(function(response) {
                 return response.data
             }, function(err) {});
-    };
+    };*/
 
 //  share memories:
 

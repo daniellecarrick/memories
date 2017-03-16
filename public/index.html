@@ -91,14 +91,17 @@
       <!--filter buttons-->
         <div class="col-xs-4">
             <label>Age: </label>
-            <button class="btn btn-default ageBtn">0-20</button>
-            <button class="btn btn-default ageBtn">20-30</button>
-            <button class="btn btn-default ageBtn">30-40</button>
-            <button class="btn btn-default ageBtn">50+</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(0,12)">Childhood</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(13,20)">Teens</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(20,30)">20s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(30,40)">30s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(40,50)">40s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(50,60)">50s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(60,100)">60+</button>
         </div>
         <div class="col-xs-4 pull-right">
             Feeling:
-            <button class="btn btn-default" ng-model="posMem" ng-click="displayPosMem()">
+            <button class="btn btn-default"  ng-click="displayPosMem()">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
             </button>
             <button class="btn btn-default" ng-model="negMem" ng-click="displayNegMem()">
@@ -120,7 +123,7 @@
         <!--MAIN CONTAINER VIEWER-->
         <div class="row">
           <div class="card col-md-8 col-md-offset-2">
-            <div ng-repeat="x in memoriesdb | filter:{location:selectbox,posNeg:posMem} | limitTo:5" class="card-block text-left">
+            <div ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left">
                 <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
                 <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
                 <em>{{ x.body }}</em>
