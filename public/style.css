@@ -161,6 +161,7 @@ select {
 
 .d3 {
   background-color: lightgrey;
+  position: relative;
 }
 
 /***********************/
