@@ -38,4 +38,34 @@ app.controller('mainController', function($scope, memFactory) {
         $scope.negMems = negMems;
     });
 
+// age grouping scopes:
+
+memFactory.getChildhood().then(function(childhood) {
+    $scope.childhood = childhood;
+});
+
+memFactory.getTeens().then(function(teens) {
+    $scope.teens = teens;
+});
+
+memFactory.getTwenties().then(function(twenties) {
+    $scope.twenties = twenties;
+});
+
+memFactory.getThirties().then(function(thirties) {
+    $scope.thirties = thirties;
+});
+
+memFactory.getForties().then(function(forties) {
+    $scope.forties = forties;
+});
+
+memFactory.getFifties().then(function(fifties) {
+    $scope.fifties = fifties;
+});
+
+memFactory.getSixtyPlus().then(function(sixtyPlus) {
+    $scope.sixtyPlus = sixtyPlus;
+});
+
 });
