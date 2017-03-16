@@ -102,10 +102,10 @@
 
         <div class="col-xs-4 pull-right">
             Feeling:
-            <button class="btn btn-default" ng-model="posMem" ng-click="displayPosMem()">
+            <button class="btn btn-default" ng-click="displayPosMem()">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
             </button>
-            <button class="btn btn-default" ng-model="negMem" ng-click="displayNegMem()">
+            <button class="btn btn-default" ng-click="displayNegMem()">
               <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
             </button>
         </div>
@@ -124,7 +124,7 @@
         <!--MAIN CONTAINER VIEWER-->
         <div class="row">
           <div class="card col-md-8 col-md-offset-2">
-            <div ng-repeat="x in memoriesdb | filter:{location:selectbox,posNeg:posMem} | limitTo:5" class="card-block text-left">
+            <div ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left" ng-model="mailContent">
                 <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
                 <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
                 <em>{{ x.body }}</em> <br>
