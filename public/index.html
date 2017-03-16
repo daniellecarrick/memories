@@ -12,7 +12,7 @@
   <title>me.mories</title>
 </head>
 <body ng-controller="mainController">
- <section class="intro">
+ <section class="intro" id="section01">
   <div class="landing-page">
     <div ng-model="container" class="container">
       <div class="row">
@@ -68,11 +68,14 @@
       </div><!--end row-->
       <div class="row">
         <div class="share">
-          <button class="btn btn-default" type="button" ng-click="addMem(newMem)">Share</button>
+          <a href="#section02">
+            <button class="btn btn-default" type="button" ng-click="addMem(newMem)">
+             Share</button>
+          </a>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-md-push-3">
           <div ng-show="thanks">
             <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
           </div>
@@ -82,7 +85,7 @@
   </div>
  </section>
  <!-- TEXT VIEW -->
- <section class="textview">
+ <section class="textview" id="section02">
   <div ng-model="container" class="container">
     <h1>Explore memories</h1>
       <div class="row">
@@ -127,7 +130,7 @@
         </div>
     </div><!--end container-->
  </section>
- <section class="d3">
+ <section class="d3" id="section03"> 
     <div class="container">
       <div class="row">
         <h1>age and me.mory sentiment</h1>

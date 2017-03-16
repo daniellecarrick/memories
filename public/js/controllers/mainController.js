@@ -28,4 +28,14 @@ app.controller('mainController', function($scope, memFactory) {
         $scope.uniqueLocs = uniqueLocs;
     });
 
+// positive and negative memory scopes:
+
+    memFactory.getPosMems().then(function(posMems) {
+        $scope.posMems = posMems;
+    });
+
+    memFactory.getNegMems().then(function(negMems) {
+        $scope.negMems = negMems;
+    });
+
 });
