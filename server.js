@@ -124,8 +124,19 @@ app.get('/sixtyPlus', function(req, res, next) {
   });
 });*/
 
-app.get('/memoriesdb:minAge', function(req, res, next) {
+app.get('/memoriesroute:minAge', function(req, res, next) {
   Memory.find({'age': {$gt: req.query.minAge}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
+
+app.get('/memoriesdb', function(req, res, next) {
+  Memory.find(function(error, mem) {
     if (error) {
       console.error(error)
       return next(error);
