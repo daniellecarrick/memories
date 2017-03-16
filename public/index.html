@@ -88,14 +88,18 @@
   <div ng-model="container" class="container">
     <h1>Explore memories</h1>
       <div class="row">
-      <!--filter buttons-->
+        <!--filter buttons-->
         <div class="col-xs-4">
             <label>Age: </label>
-            <button class="btn btn-default ageBtn">0-20</button>
-            <button class="btn btn-default ageBtn">20-30</button>
-            <button class="btn btn-default ageBtn">30-40</button>
-            <button class="btn btn-default ageBtn">50+</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(0,12)">Childhood</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(13,20)">Teens</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(20,30)">20s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(30,40)">30s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(40,50)">40s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(50,60)">50s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(60,100)">60+</button>
         </div>
+
         <div class="col-xs-4 pull-right">
             Feeling:
             <button class="btn btn-default" ng-model="posMem" ng-click="displayPosMem()">
