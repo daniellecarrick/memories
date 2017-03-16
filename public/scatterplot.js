@@ -44,28 +44,38 @@ d3.json('/memoriesdb', function (err, data) {
   var yscale = y.domain([1, 10]);
 
   // x-axis rendering and labels
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height/2 + ")")
-      .call(d3.axisBottom(x))
-    .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
-      .style("text-anchor", "middle") //axis label not showing up
-      .text("age");
+ svg.append("g")
+     .attr("class", "x axis")
+     .attr("transform", "translate(0," + height/2 + ")")
+     .call(d3.axisBottom(x));
+
+  svg.append("text")
+     .attr("class", "label x-axis-label")
+     .attr("x", width)
+     .attr("y", -6)
+     .style("text-anchor", "middle") //axis label not showing up
+     .text("age");
 
   // y-axis rendering and labels
   svg.append("g")
       .attr("class", "y axis")
       .call(d3.axisLeft(y))
-    .append("text")
+/*    .append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "middle") //axis label not showing up
-      .text("sentiment")
+      .text("sentiment")*/
+
+  svg.append("text")
+     .attr("class", "label y-axis-label")
+     .attr("transform", "rotate(-90)")
+     .attr("x", width)
+     .attr("y", 6)
+     .attr("dy", ".71em")
+     .style("text-anchor", "middle") //axis label not showing up
+     .text("sentiment");
 
   var dots = svg.selectAll(".dot");
   // data markers
@@ -75,8 +85,12 @@ d3.json('/memoriesdb', function (err, data) {
       .attr("r", 10)
       .attr("cx", function(d) { return x(d.age); })
       .attr("cy", function(d) { return y(d.posNeg); })
-      .style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); }) // using a color scale to fill dots based on rating
-      .style("opacity", 0.8)
+      // using a color scale to fill dots based on rating
+      //.style("fill", function(d) { return d3.interpolatePuOr(colors(d.posNeg)); })
+      .style("fill", "white")
+      .style("fill-opacity", 0.2)
+      .style("stroke", "white")
+      .style("stroke-opacity", .8)
       .on("mouseover", function(d) {
        tooltip.transition()
          .duration(200)
@@ -95,8 +109,6 @@ d3.json('/memoriesdb', function (err, data) {
       d3.select(this).transition()
           .attr("r", 10);
       })
-
-
 
  /* var legend = svg.selectAll(".legend")
       .data(color.domain())
