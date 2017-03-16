@@ -1,6 +1,8 @@
 app.controller('mainController', function($scope, memFactory) {
     $scope.thanks = false; //hides thank you
 
+    $scope.mailLink = "mailto:" + $scope.emailId + "?subject=" + $scope.Subject + '&body=' + $scope.body;
+
      $scope.displayPosMem = function(){
         var filterMem = $scope.posMems;
         console.log(filterMem);
