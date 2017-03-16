@@ -6,7 +6,7 @@ div.tooltip {
   position: absolute;
   padding: 20px;
   font-size: 12px;
-  color: black;
+  color: #1c1c1c;
   max-width: 300px;
   background-color: rgba(255,255,255,0.8);
   pointer-events: none;
@@ -20,7 +20,10 @@ text {
   fill: white;
   font-size: 14px;
   font-family: 'Roboto Slab', serif;
-  fill-opacity: .7;
+}
+
+.tick text {
+  fill-opacity: .5;
 }
 
 /* come back to this once I know how to add variables to position triangle in the middle
@@ -60,8 +63,4 @@ div.tooltip:after {
   stroke: white;
   stroke-width: 1.5px;
   stroke-opacity: .5;
-}
-
-.axisRed text{
-  fill: white;
 }
