@@ -16,9 +16,11 @@ div.tooltip {
   fill: white;
 }
 
-.tick text {
+text {
   fill: white;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: 'Roboto Slab', serif;
+  fill-opacity: .7;
 }
 
 /* come back to this once I know how to add variables to position triangle in the middle
@@ -56,7 +58,8 @@ div.tooltip:after {
 /* axis line */
 .x.axis path, .y.axis path {
   stroke: white;
-  stroke-width: 2px;
+  stroke-width: 1.5px;
+  stroke-opacity: .5;
 }
 
 .axisRed text{
