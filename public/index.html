@@ -72,7 +72,6 @@
             <button class="btn btn-default" type="button" ng-click="addMem(newMem)">
              Share</button>
           </a>
-        </div>
       </div>
       <div class="row">
         <div class="col-md-6 col-md-push-3">
@@ -99,10 +98,10 @@
         </div>
         <div class="col-xs-4 pull-right">
             Feeling:
-            <button class="btn btn-default" ng-model="posMem">
+            <button class="btn btn-default" ng-model="posMem" ng-click="displayPosMem()">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
             </button>
-            <button class="btn btn-default" ng-model="negMem">
+            <button class="btn btn-default" ng-model="negMem" ng-click="displayNegMem()">
               <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
             </button>
         </div>
@@ -118,19 +117,20 @@
       </div>
     </div><!--end row-->
       <br><br>
+        <!--MAIN CONTAINER VIEWER-->
         <div class="row">
-          <div class="card col-md-8 col-md-offset-2"> <!--| orderBy:'-age'-->
-            <div ng-repeat="x in memoriesdb | filter:{location:selectbox} |  limitTo:5" class="card-block text-left">
-              <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
-              <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
-              <em>{{ x.body }}</em>
-              <hr>
+          <div class="card col-md-8 col-md-offset-2">
+            <div ng-repeat="x in memoriesdb | filter:{location:selectbox,posNeg:posMem} | limitTo:5" class="card-block text-left">
+                <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
+                <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
+                <em>{{ x.body }}</em>
+                <hr>
              </div>
           </div>
         </div>
     </div><!--end container-->
  </section>
- <section class="d3" id="section03"> 
+ <section class="d3" id="section03">
     <div class="container">
       <div class="row">
         <h1>age and me.mory sentiment</h1>
