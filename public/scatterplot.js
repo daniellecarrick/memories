@@ -24,7 +24,7 @@ var svg = d3.select(".chart-container").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var tooltip = d3.select("body").append("div")
+var tooltip = d3.select(".d3").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
@@ -85,8 +85,8 @@ d3.json('/memoriesdb', function (err, data) {
         d3.select(this).transition()
           .attr("r", 15);
        tooltip.html(d.body)
-         .style("left", (d3.event.pageX) + "px")
-         .style("top", (d3.event.pageY/2) + "px");
+         .style("left", (d3.mouse(this)[0]) + "px") // finds x coordinate of mouse position
+         .style("top", (d3.mouse(this)[1]) + "px"); //finds y coordinate of mouse position
        })
       .on("mouseout", function(d) {
         tooltip.transition()
