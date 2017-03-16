@@ -35,7 +35,6 @@ app.controller('mainController', function($scope, memFactory) {
         memFactory.addMem(newMem).then(function(mem) {
             $scope.thanks = true;
             $scope.memoriesdb.push(mem);
-            $scope.thanks = true; //reveals thankyou
             console.log(mem.body, mem.age);
         });
         //clearing fields but not on view
