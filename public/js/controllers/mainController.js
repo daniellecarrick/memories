@@ -1,5 +1,17 @@
 app.controller('mainController', function($scope, memFactory) {
     $scope.thanks = false; //hides thank you
+    
+    $scope.displayPosMem = function(){
+        var filterMem = $scope.posMems;
+        console.log(filterMem);
+        alert('im positive!');
+    };    
+    
+    $scope.displayNegMem = function(){
+         var filterMem = $scope.negMems;
+         console.log(filterMem);
+         alert('im negative!');
+    };
 
     $scope.addMem = function(newMem) {
         //&& $scope.posNeg && $scope.age && $scope.location
