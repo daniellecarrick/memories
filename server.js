@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
 //  API routes  >
-/*app.get('/uniqueLocs', function(req, res, next) {
+app.get('/uniqueLocs', function(req, res, next) {
   Memory.distinct('location', function(error, mem) {
     if (error) {
       console.error(error)
@@ -24,7 +24,7 @@ app.use(express.static('node_modules'));
     }
   });
 });
-
+/*
 app.get('/posMems', function(req, res, next) {
   Memory.find({'posNeg': {$gt: '5'}}, function(error, mem) {
     if (error) {
@@ -124,8 +124,13 @@ app.get('/sixtyPlus', function(req, res, next) {
   });
 });*/
 
-app.get('/memoriesroute:minAge', function(req, res, next) {
-  Memory.find({'age': {$gt: req.query.minAge}}, function(error, mem) {
+app.get('/memoriesdb', function(req, res, next) {
+  console.log(req.query);
+  // set default values
+  var minAge = req.query.minAge || 0;
+  var maxAge = req.query.maxAge || 100;
+
+  Memory.find({'age': {$gt: minAge, $lt: maxAge}}, function(error, mem) {
     if (error) {
       console.error(error)
       return next(error);
@@ -134,7 +139,7 @@ app.get('/memoriesroute:minAge', function(req, res, next) {
     }
   });
 });
-
+/*
 app.get('/memoriesdb', function(req, res, next) {
   Memory.find(function(error, mem) {
     if (error) {
@@ -144,7 +149,7 @@ app.get('/memoriesdb', function(req, res, next) {
       res.send(mem);
     }
   });
-});
+});*/
 
 app.post('/memoriesdb', function(req, res, next) {
   Memory.create(req.body, function(err, mem) {

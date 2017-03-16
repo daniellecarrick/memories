@@ -3,9 +3,8 @@ app.factory('memFactory', function($http) {
     var memFactory = {};
 
 //  get all the memories:
-
-    memFactory.getMems = function() {
-        return $http.get('/memoriesdb')
+    memFactory.getMems = function(minAge, maxAge) {
+        return $http.get('/memoriesdb', { params: { minAge: minAge, maxAge: maxAge } })
             .then(function(response) {
                 return response.data
             }, function(err) {});
