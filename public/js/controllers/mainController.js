@@ -1,9 +1,9 @@
 app.controller('mainController', function($scope, memFactory) {
     $scope.thanks = false; //hides thank you
-
+    $scope.mailLink = "mailto:" + $scope.emailId + "?subject=" + $scope.Subject + '&body=' + $scope.mailContent;
     // default form variables
-/*    $scope.maxPosMem = 10;
-    $scope.minPosMem = 0;*/
+    $scope.maxPosMem = 10;
+    $scope.minPosMem = 0;
     $scope.minAge = 0;
     $scope.maxAge = 100;
 
@@ -19,18 +19,14 @@ app.controller('mainController', function($scope, memFactory) {
         });
     }
 
-    $scope.displayPosMem = function(){
-        $scope.maxPosMem = 10;
-        $scope.minPosMem = 6;
-        //var filterMem = $scope.posMems;
+    $scope.displaySentiment = function(min, max){
+        $scope.maxPosMem = max;
+        $scope.minPosMem = min;
         console.log($scope.maxPosMem, $scope.minPosMem);
-    };
-
-    $scope.displayNegMem = function(){
-        $scope.maxPosMem = 5;
-        $scope.minPosMem = 1;
-        //var filterMem = $scope.negMems;
-        console.log(filterMem);
+        //var filterMem = $scope.posMems;
+        memFactory.getMems(min, max).then(function (filteredMemories) {
+            $scope.memoriesdb = filteredMemoriesSentiment;
+        });
     };
 
     $scope.addMem = function(newMem) {
@@ -52,7 +48,7 @@ app.controller('mainController', function($scope, memFactory) {
         // }else{alert("please fill in the fields");}
     };
 
-    memFactory.getMems($scope.minAge, $scope.maxAge).then(function(memoriesdb) {
+    memFactory.getMems($scope.minAge, $scope.maxAge, $scope.minPosMem, $scope.maxPosMem).then(function(memoriesdb) {
         $scope.memoriesdb = memoriesdb;
     });
 
