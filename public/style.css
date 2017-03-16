@@ -160,7 +160,13 @@ select {
 }*/
 
 .d3 {
-  background-color: lightgrey;
+  background-color: tomato;
+  position: relative;
+}
+
+.d3 h1 {
+  margin: 50px;
+  text-align: center;
 }
 
 /***********************/
