@@ -25,6 +25,45 @@ app.get('/uniqueLocs', function(req, res, next) {
   });
 });
 
+
+//posMems - WORKING
+app.get('/posMems', function(req, res, next) {
+  Memory.find({'posNeg': {$gt: '5'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
+
+//negMems - WORKING
+app.get('/negMems', function(req, res, next) {
+  Memory.find({'posNeg': {$lt: '6'}}, function(error, mem) {
+    if (error) {
+      console.error(error)
+      return next(error);
+    } else {
+      res.send(mem);
+    }
+  });
+});
+
+//app.get childhood
+
+//app.get teens
+
+//app.get 20s
+
+//app.get 30s
+
+//app.get 40s
+
+//app.get 50s
+
+//app.get 60+
+
 app.get('/memoriesdb', function(req, res, next) {
   Memory.find(function(error, mem) {
     if (error) {
