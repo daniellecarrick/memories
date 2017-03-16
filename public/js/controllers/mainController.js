@@ -1,18 +1,32 @@
 app.controller('mainController', function($scope, memFactory) {
     $scope.thanks = false; //hides thank you
-
     $scope.mailLink = "mailto:" + $scope.emailId + "?subject=" + $scope.Subject + '&body=' + $scope.mailContent;
+    // default form variables
+    $scope.maxPosMem = 10;
+    $scope.minPosMem = 0;
+    $scope.minAge = 0;
+    $scope.maxAge = 100;
 
-     $scope.displayPosMem = function(){
-        var filterMem = $scope.posMems;
-        console.log(filterMem);
-        alert('im positive!');
-    };
+    $scope.setAgeMinMax = function(min, max) {
+        $scope.minAge = min;
+        $scope.maxAge = max;
+        console.log($scope.minAge, $scope.maxAge);
+        // make request to API to get memories for specified age range
+        // then show the new memories on the page
+        // need to use a callback to update memoriesdb with filtered memories because it's asynchronous
+        memFactory.getMems(min, max).then(function (filteredMemories) {
+            $scope.memoriesdb = filteredMemories;
+        });
+    }
 
-     $scope.displayNegMem = function(){
-         var filterMem = $scope.negMems;
-         console.log(filterMem);
-         alert('im negative!');
+    $scope.displaySentiment = function(min, max){
+        $scope.maxPosMem = max;
+        $scope.minPosMem = min;
+        console.log($scope.maxPosMem, $scope.minPosMem);
+        //var filterMem = $scope.posMems;
+        memFactory.getMems(min, max).then(function (filteredMemories) {
+            $scope.memoriesdb = filteredMemoriesSentiment;
+        });
     };
 
     $scope.addMem = function(newMem) {
@@ -33,7 +47,7 @@ app.controller('mainController', function($scope, memFactory) {
         // }else{alert("please fill in the fields");}
     };
 
-    memFactory.getMems().then(function(memoriesdb) {
+    memFactory.getMems($scope.minAge, $scope.maxAge, $scope.minPosMem, $scope.maxPosMem).then(function(memoriesdb) {
         $scope.memoriesdb = memoriesdb;
     });
 
@@ -41,44 +55,5 @@ app.controller('mainController', function($scope, memFactory) {
         $scope.uniqueLocs = uniqueLocs;
     });
 
-// positive and negative memory scopes:
-
-    memFactory.getPosMems().then(function(posMems) {
-        $scope.posMems = posMems;
-    });
-
-    memFactory.getNegMems().then(function(negMems) {
-        $scope.negMems = negMems;
-    });
-
-// age grouping scopes:
-
-memFactory.getChildhood().then(function(childhood) {
-    $scope.childhood = childhood;
-});
-
-memFactory.getTeens().then(function(teens) {
-    $scope.teens = teens;
-});
-
-memFactory.getTwenties().then(function(twenties) {
-    $scope.twenties = twenties;
-});
-
-memFactory.getThirties().then(function(thirties) {
-    $scope.thirties = thirties;
-});
-
-memFactory.getForties().then(function(forties) {
-    $scope.forties = forties;
-});
-
-memFactory.getFifties().then(function(fifties) {
-    $scope.fifties = fifties;
-});
-
-memFactory.getSixtyPlus().then(function(sixtyPlus) {
-    $scope.sixtyPlus = sixtyPlus;
-});
 
 });
