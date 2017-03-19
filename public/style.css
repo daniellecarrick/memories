@@ -183,6 +183,10 @@ select {
   margin: 40px 0px;
 }
 
+section {
+  height: 100%;
+}
+
 
 
 /*forcing white placeholder*/
