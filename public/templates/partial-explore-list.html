@@ -3,7 +3,7 @@
     <h1>Explore memories</h1>
       <div class="row">
         <!-- filter buttons -->
-        <div class="col-xs-4">
+        <div class="col-sm-4 list-filters">
             <label>Age: </label>
             <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(0,12)">Childhood</button>
             <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(13,20)">Teens</button>
@@ -14,7 +14,7 @@
             <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(60,100)">60+</button>
         </div>
 
-        <div class="col-xs-4 pull-right">
+        <div class="col-sm-4 list-filters">
             Feeling:
             <button class="btn btn-default"  ng-click="displaySentiment(6,10)">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
@@ -23,16 +23,15 @@
               <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
             </button>
         </div>
-        <div class="col-xs-4 pull-left">
+        <div class="col-sm-4 pull-left list-filters">
         <label>Location:</label>
-       the ng model created here is for the filter afterwards"
+
         <select id="sel" ng-model="selectbox">
           <option ng-repeat="x in uniqueLocs | orderBy:location">{{x}}</option>
           <option value="search by location" selected>search by location</option>
         </select>
       </div>
     </div>
-      <br><br> -->
         <!--MAIN CONTAINER VIEWER-->
         <div class="row">
           <div class="card col-md-8 col-md-offset-2">
