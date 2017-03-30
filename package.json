@@ -22,6 +22,7 @@
   "homepage": "https://github.com/daniellecarrick/memories#readme",
   "dependencies": {
     "angular": "^1.6.3",
+    "angular-ui-router": "^0.4.2",
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "d3": "^4.7.3",

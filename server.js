@@ -10,8 +10,11 @@ mongoose.connect("mongodb://localhost/memoriesdb");
 //  middleware  >
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
+
+
 
 //  API routes  >
 app.get('/uniqueLocs', function(req, res, next) {
@@ -42,24 +45,17 @@ app.get('/memoriesdb', function(req, res, next) {
     }
   });
 });
-/*
-app.get('/memoriesdb', function(req, res, next) {
-  Memory.find(function(error, mem) {
-    if (error) {
-      console.error(error)
-      return next(error);
-    } else {
-      res.send(mem);
-    }
-  });
-});*/
 
+/*app.get('/test', function (req, res){
+  res.send('hey')
+})*/
 app.post('/memoriesdb', function(req, res, next) {
   Memory.create(req.body, function(err, mem) {
     if (err) {
       console.error(err)
       return next(err);
     } else {
+      console.log(mem);
       res.json(mem);
     }
   });
@@ -68,4 +64,9 @@ app.post('/memoriesdb', function(req, res, next) {
 //  run server  >
 app.listen(8000, function() {
   console.log("Memory app started. Oof al ze!")
+});
+
+//for right now just keep this commented, depend on the 'static' stuff [^.]+ will accept any string without a dot thereby ignoring file names
+app.all('[^.]+', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html')
 });

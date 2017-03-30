@@ -10,21 +10,21 @@
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <title>me.mories</title>
+  <base href='/' />
 </head>
 <body ng-controller="mainController">
- <section class="intro" id="section01">
+<div ui-view></div>
+ <!-- <section class="intro" id="section01">
   <div class="landing-page">
     <div ng-model="container" class="container">
       <div class="row">
         <h1>What is your most important memory?</h1>
-        <!-- begin first row -->
+
         <div class="col-sm-8 col-sm-offset-2">
           <p>It can be big or small, happy or sad, as long as it's important to you.</p>
             <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
-            <!-- test input {{ newMem.body }} -->
         </div>
       </div>
-      <!--begin second row-->
       <div class="row">
         <div class="range-selector">
           <p>Was your memory more negative (1) or positive (10)?</p>
@@ -44,7 +44,6 @@
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 8">8</button>
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 9">9</button>
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 10">10</button>
-              <!-- test input {{ newMem.posNeg }} -->
             </div>
           </div>
         </div>
@@ -53,23 +52,20 @@
           </div>
         </div>
       </div>
-      <!--begin third row-->
       <div class="row">
         <div class="col-sm-2 col-sm-offset-2">
           <label class="pull-left" for="age">Age at memory</label>
             <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
-            <!-- test input {{ newMem.age }} -->
         </div>
         <div class="col-sm-6 loc">
           <label class="pull-left" for="location">Location of memory</label>
            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
-          <!-- test input {{ newMem.location }} -->
         </div>
-      </div><!--end row-->
+      </div>
       <div class="row">
         <div class="share">
           <a href="#section02">
-            <button class="btn btn-default" type="button" ng-click="addMem(newMem)">
+            <button class="btn btn-default" type="button" ng-click="addMem(newMem)" ui-sref="partial-text">
              Share</button>
           </a>
       </div>
@@ -80,16 +76,16 @@
           </div>
         </div>
       </div>
-    </div><!--end container-->
+    </div>
   </div>
- </section>
+ </section> -->
  <!-- TEXT VIEW -->
- <section class="textview" id="section02">
+<!--  <section class="textview" id="section02">
   <div ng-model="container" class="container">
     <h1>Explore memories</h1>
       <div class="row">
-        <!--filter buttons-->
-        <div class="col-xs-4">
+        <!-- filter buttons -->
+       <!-- <div class="col-xs-4">
             <label>Age: </label>
             <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(0,12)">Childhood</button>
             <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(13,20)">Teens</button>
@@ -111,18 +107,16 @@
         </div>
         <div class="col-xs-4 pull-left">
         <label>Location:</label>
-       <!--the ng model created here is for the filter afterwards"-->
+       the ng model created here is for the filter afterwards"
         <select id="sel" ng-model="selectbox">
           <option ng-repeat="x in uniqueLocs | orderBy:location">{{x}}</option>
           <option value="search by location" selected>search by location</option>
-          <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
-          <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
         </select>
       </div>
-    </div><!--end row-->
-      <br><br>
+    </div>
+      <br><br> -->
         <!--MAIN CONTAINER VIEWER-->
-        <div class="row">
+        <!--<div class="row">
           <div class="card col-md-8 col-md-offset-2">
             <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left">
                 <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
@@ -136,7 +130,7 @@
              </div>
           </div>
         </div>
-    </div><!--end container-->
+    </div>
  </section>
  <section class="d3" id="section03">
     <div class="container">
@@ -145,10 +139,11 @@
         <div class="chart-container"></div>
       </div>
     </div>
- </section>
+ </section> -->
 
   <script src="scatterplot.js"></script>
   <script src="angular/angular.js"></script>
+  <script src="angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services/memFactory.js"></script>
   <script src="js/controllers/mainController.js"></script>
