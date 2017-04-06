@@ -48,13 +48,15 @@
         </div>
         <div class="col-sm-5 loc">
           <label class="pull-left" for="location">Memory location</label>
-<!--            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text"> --> {{location}}
-        <input type="text"  class="form-control padding" ng-autocomplete ng-model="location" options="options" details="details"/>
+<!--            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text"> --> {{newMem.location}}
+        <input type="text"  class="form-control padding" ng-autocomplete ng-model="newMem.location" options="options" details="details"/>
       </div><!--end row-->
       <div class="row">
-        <div class="share">
-            <button class="btn btn-default" type="button" ng-click="addMem(newMem)" ui-sref="list">
-             Share</button>
+        <div class="col-sm-12">
+          <div class="share">
+              <button class="btn btn-default" type="button" ng-click="addMem(newMem)" ui-sref="list">
+               Share</button>
+          </div>
         </div>
       </div>
   <!--end container-->
