@@ -14,17 +14,17 @@ app.controller('mainController', function($scope, memFactory) {
         // make request to API to get memories for specified age range
         // then show the new memories on the page
         // need to use a callback to update memoriesdb with filtered memories because it's asynchronous
-        memFactory.getMems(min, max).then(function (filteredMemories) {
+        memFactory.getMems(min, max, $scope.minPosMem, $scope.maxPosMem).then(function (filteredMemories) {
             $scope.memoriesdb = filteredMemories;
         });
     }
-
+    // for some reason sentiment is being passed as age
     $scope.displaySentiment = function(min, max){
         $scope.maxPosMem = max;
         $scope.minPosMem = min;
         console.log($scope.maxPosMem, $scope.minPosMem);
         //var filterMem = $scope.posMems;
-        memFactory.getMems(min, max).then(function (filteredMemories) {
+        memFactory.getMems($scope.minAge, $scope.maxAge, min, max).then(function (filteredMemoriesSentiment) {
             $scope.memoriesdb = filteredMemoriesSentiment;
         });
     };

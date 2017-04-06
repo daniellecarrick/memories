@@ -37,7 +37,7 @@
           <div class="card col-md-8 col-md-offset-2">
             <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left">
                 <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
-                <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
+                <h5>Sentiment: {{ x.posNeg }}</h5>
                 <em>{{ x.body }}</em>
                 <br>
                 <a ng-href="{{mailLink}}">
