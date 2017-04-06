@@ -111,8 +111,7 @@ body, html {
   background-repeat: repeat-x;
 }
 
-.textview h1 {
-  margin: 50px;
+.textview h2 {
   text-align: center;
 }
 
@@ -149,8 +148,17 @@ select {
 /***********************/
 
 .custom-nav .navbar-right {
-  width: 20%;
+  width: 250px;
   height: 50px;
+}
+
+.custom-nav button {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.custom-nav .btn-group {
+  margin-top: 7px;
 }
 
 nav.navbar {
@@ -176,8 +184,7 @@ nav.navbar {
   position: relative;
 }
 
-.d3 h1 {
-  margin: 50px;
+.d3 h2 {
   text-align: center;
 }
 
