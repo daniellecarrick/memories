@@ -1,0 +1,51 @@
+<section class="textview" id="section02">
+  <div ng-model="container" class="container">
+    <h1>Explore memories</h1>
+      <div class="row">
+        <!-- filter buttons -->
+        <div class="col-sm-4 list-filters">
+            <label>Age: </label>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(0,12)">Childhood</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(13,20)">Teens</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(20,30)">20s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(30,40)">30s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(40,50)">40s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(50,60)">50s</button>
+            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(60,100)">60+</button>
+        </div>
+
+        <div class="col-sm-4 list-filters">
+            Feeling:
+            <button class="btn btn-default"  ng-click="displaySentiment(6,10)">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-default" ng-model="negMem" ng-click="displaySentiment(1,5)">
+              <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-sm-4 pull-left list-filters">
+        <label>Location:</label>
+
+        <select id="sel" ng-model="selectbox">
+          <option ng-repeat="x in uniqueLocs | orderBy:location">{{x}}</option>
+          <option value="search by location" selected>search by location</option>
+        </select>
+      </div>
+    </div>
+        <!--MAIN CONTAINER VIEWER-->
+        <div class="row">
+          <div class="card col-md-8 col-md-offset-2">
+            <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left">
+                <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
+                <h5>Sentiment: {{ x.posNeg }}</h5>
+                <em>{{ x.body }}</em>
+                <br>
+                <a ng-href="{{mailLink}}">
+                  <span style="color:#fff" class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                </a>
+                <hr>
+             </div>
+          </div>
+        </div>
+    </div>
+ </section>

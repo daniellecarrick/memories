@@ -3,154 +3,43 @@
 <html ng-app="meMories">
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="d3-style.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/d3-style.css">
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <title>me.mories</title>
+  <base href='/' />
 </head>
-<body ng-controller="mainController">
- <section class="intro" id="section01">
-  <div class="landing-page">
-    <div ng-model="container" class="container">
-      <div class="row">
-        <h1>What is your most important memory?</h1>
-        <!-- begin first row -->
-        <div class="col-sm-8 col-sm-offset-2">
-          <p>It can be big or small, happy or sad, as long as it's important to you.</p>
-            <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
-            <!-- test input {{ newMem.body }} -->
-        </div>
-      </div>
-      <!--begin second row-->
-      <div class="row">
-        <div class="range-selector">
-          <p>Was your memory more negative (1) or positive (10)?</p>
-          <div class="col-xs-3 neg">
-            <label><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></label>
-          </div>
-        <div class="col-sm-6 scale">
-          <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected">
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 1">1</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 2">2</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 3">3</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 4">4</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 5">5</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 6">6</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 7">7</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 8">8</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 9">9</button>
-              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 10">10</button>
-              <!-- test input {{ newMem.posNeg }} -->
-            </div>
-          </div>
-        </div>
-          <div class="col-sm-3 pos">
-            <label><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></label>
-          </div>
-        </div>
-      </div>
-      <!--begin third row-->
-      <div class="row">
-        <div class="col-sm-2 col-sm-offset-2">
-          <label class="pull-left" for="age">Age at memory</label>
-            <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
-            <!-- test input {{ newMem.age }} -->
-        </div>
-        <div class="col-sm-6 loc">
-          <label class="pull-left" for="location">Location of memory</label>
-           <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
-          <!-- test input {{ newMem.location }} -->
-        </div>
-      </div><!--end row-->
-      <div class="row">
-        <div class="share">
-          <a href="#section02">
-            <button class="btn btn-default" type="button" ng-click="addMem(newMem)">
-             Share</button>
-          </a>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-md-push-3">
-          <div ng-show="thanks">
-            <h4 class="text-center">thank you! your me.mory is kept with us!</h4>
-          </div>
-        </div>
-      </div>
-    </div><!--end container-->
-  </div>
- </section>
- <!-- TEXT VIEW -->
- <section class="textview" id="section02">
-  <div ng-model="container" class="container">
-    <h1>Explore memories</h1>
-      <div class="row">
-        <!--filter buttons-->
-        <div class="col-xs-4">
-            <label>Age: </label>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(0,12)">Childhood</button>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(13,20)">Teens</button>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(20,30)">20s</button>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(30,40)">30s</button>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(40,50)">40s</button>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(50,60)">50s</button>
-            <button class="btn btn-default ageBtn" ng-click="setAgeMinMax(60,100)">60+</button>
-        </div>
 
-        <div class="col-xs-4 pull-right">
-            Feeling:
-            <button class="btn btn-default"  ng-click="displaySentiment(6,10)">
-              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-            </button>
-            <button class="btn btn-default" ng-model="negMem" ng-click="displaySentiment(1,5)">
-              <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-            </button>
-        </div>
-        <div class="col-xs-4 pull-left">
-        <label>Location:</label>
-       <!--the ng model created here is for the filter afterwards"-->
-        <select id="sel" ng-model="selectbox">
-          <option ng-repeat="x in uniqueLocs | orderBy:location">{{x}}</option>
-          <option value="search by location" selected>search by location</option>
-          <!-- <option ng-repeat="x in memoriesdb">{{x.location}}</option> -->
-          <!-- <option ng-repeat="x in uniqueLocs | orderBy: 'location'">{{x.location}}</option> -->
-        </select>
+<body ng-controller="mainController">
+
+<!--***************
+*** PRIMARY NAV ***
+****************-->
+  <nav class="navbar navbar-inverse custom-nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <span class="navbar-brand">Memories</span>
       </div>
-    </div><!--end row-->
-      <br><br>
-        <!--MAIN CONTAINER VIEWER-->
-        <div class="row">
-          <div class="card col-md-8 col-md-offset-2">
-            <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left">
-                <h3 class="card-title">{{ x.location }}, {{ x.age }}</h3>
-                <h5><span style="color:red;">{{ x.posNeg }}/10</span> on the happiness scale</h5>
-                <em>{{ x.body }}</em>
-                <br>
-                <a ng-href="{{mailLink}}">
-                  <span style="color:#fff" class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                </a>
-                <hr>
-             </div>
-          </div>
+      <!-- Add a new goal button -->
+      <div class="navbar-right">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" ui-sref="list">List</button>
+          <button type="button" class="btn btn-default" ui-sref="chart">Visualize</button>
         </div>
-    </div><!--end container-->
- </section>
- <section class="d3" id="section03">
-    <div class="container">
-      <div class="row">
-        <h1>age and me.mory sentiment</h1>
-        <div class="chart-container"></div>
       </div>
     </div>
- </section>
+  </nav>
 
-  <script src="scatterplot.js"></script>
-  <script src="angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services/memFactory.js"></script>
-  <script src="js/controllers/mainController.js"></script>
+  <div ui-view></div>
+
+  <script src="/angular/angular.js"></script>
+  <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/services/memFactory.js"></script>
+  <script src="/js/controllers/mainController.js"></script>
+  <script src="/js/directives/scatterplotDirective.js"></script>
 </body>
 </html>

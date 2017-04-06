@@ -94,12 +94,12 @@ body, html {
 }
 
 .btn {
-  padding-left: 4%;
-  padding-right: 4%;
+  padding-left: 3.5%;
+  padding-right: 3.5%;
 }
 
 /***********************/
-/* Text View styles */
+/* List View styles */
 /***********************/
 
 .textview {
@@ -141,9 +141,21 @@ select {
   margin-top: 1px;
 }
 
-.share {
-  /*margin-top: 40px;*/
+.list-filters {
+  margin: 3% 0%;
+}
+/***********************/
+/* Explore section styles   */
+/***********************/
 
+.custom-nav .navbar-right {
+  width: 20%;
+  height: 50px;
+}
+
+nav.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
 }
 
 /***********************/
@@ -169,6 +181,10 @@ select {
   text-align: center;
 }
 
+.chart-container {
+  position: relative;
+}
+
 /***********************/
 /* Global Styles       */
 /***********************/
@@ -181,6 +197,10 @@ select {
 
 .input-group, .padding, textarea {
   margin: 40px 0px;
+}
+
+section {
+  height: 100%;
 }
 
 
