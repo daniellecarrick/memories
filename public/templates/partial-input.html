@@ -47,10 +47,9 @@
             <!-- test input {{ newMem.age }} -->
         </div>
         <div class="col-sm-6 loc">
-          <label class="pull-left" for="location">Location of memory</label>
-           <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text">
-          <!-- test input {{ newMem.location }} -->
-        </div>
+          <label class="pull-left" for="location">Country of memory</label>
+<!--            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text"> --> {{autocomplete}}
+        <input type="text"  ng-autocomplete ng-model="autocomplete" options="options" details="details"/>
       </div><!--end row-->
       <div class="row">
         <div class="share">
