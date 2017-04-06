@@ -9,6 +9,10 @@ app.config(['$stateProvider','$urlRouterProvider', '$locationProvider', function
       url: '/home',
       templateUrl: 'templates/partial-input.html'
     })
+    .state('explore', {
+      url: '/explore',
+      templateUrl: 'templates/partial-explore.html'
+    })
     .state('list', {
       url: '/list',
       templateUrl: 'templates/partial-explore-list.html'
