@@ -15,8 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
-
-
 //  API routes  >
 app.get('/uniqueLocs', function(req, res, next) {
   Memory.distinct('location', function(error, mem) {
