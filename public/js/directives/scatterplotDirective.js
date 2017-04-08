@@ -37,7 +37,7 @@ function drawScatterplot(elem) {
 
   // get the data! from a database! how cool!
   d3.json('/memoriesdb', function (err, data) {
-    console.log('your array of memories!', data);
+   // console.log('your array of memories!', data);
 
     // ensures data are numbers
     data.forEach(function(d) {
