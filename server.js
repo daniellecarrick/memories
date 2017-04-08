@@ -5,7 +5,8 @@ var Memory = require("./models/memoryModel");
 var bodyParser = require('body-parser');
 
 var app = express();
-mongoose.connect("mongodb://localhost/memoriesdb");
+//mongoose.connect("mongodb://localhost/memoriesdb");
+mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/memoriesdb');
 
 //  middleware  >
 app.use(bodyParser.json());
@@ -62,9 +63,7 @@ app.post('/memoriesdb', function(req, res, next) {
 });
 
 //  run server  >
-app.listen(8000, function() {
-  console.log("Memory app started. Oof al ze!")
-});
+app.listen(process.env.PORT || '8080');
 
 //for right now just keep this commented, depend on the 'static' stuff [^.]+ will accept any string without a dot thereby ignoring file names
 app.all('[^.]+', function(req, res) {

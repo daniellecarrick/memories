@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="/d3-style.css">
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  <title>me.mories</title>
+  <title>Memory Bank</title>
   <base href='/' />
 </head>
 
@@ -21,7 +21,7 @@
   <nav class="navbar navbar-inverse custom-nav">
     <div class="container-fluid">
       <div class="navbar-header">
-        <span class="navbar-brand">Memories</span>
+        <span class="navbar-brand" ui-sref="home">Memory Bank</span>
       </div>
       <!-- Add a new goal button -->
       <div class="navbar-right">
@@ -34,9 +34,10 @@
   </nav>
 
   <div ui-view></div>
-
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   <script src="/angular/angular.js"></script>
   <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/ng-autocomplete/src/ngAutocomplete.js"></script>
   <script src="/js/app.js"></script>
   <script src="/js/services/memFactory.js"></script>
   <script src="/js/controllers/mainController.js"></script>

@@ -1,4 +1,4 @@
-var app = angular.module('meMories', ['ui.router']);
+var app = angular.module('meMories', ['ui.router', 'ngAutocomplete']);
 
 app.config(['$stateProvider','$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
