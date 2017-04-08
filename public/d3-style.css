@@ -6,10 +6,24 @@ div.tooltip {
   position: absolute;
   padding: 20px;
   font-size: 12px;
-  color: black;
-  max-width:300px;
-  background-color: rgba(220,220,220,0.6);
+  color: #1c1c1c;
+  max-width: 300px;
+  background-color: rgba(255,255,255,0.8);
   pointer-events: none;
+}
+
+.dot {
+  fill: white;
+}
+
+text {
+  fill: white;
+  font-size: 14px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.tick text {
+  fill-opacity: .5;
 }
 
 /* come back to this once I know how to add variables to position triangle in the middle
@@ -28,6 +42,10 @@ div.tooltip:after {
 
 .chart-container {
   margin: 30px 0px;
+  background-color: none;
+  width:950px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .label {
@@ -42,10 +60,7 @@ div.tooltip:after {
 
 /* axis line */
 .x.axis path, .y.axis path {
-  stroke: grey;
-  stroke-width: 2px;
-}
-
-.axisRed text{
-  fill: red;
+  stroke: white;
+  stroke-width: 1.5px;
+  stroke-opacity: .5;
 }

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Crowd sourced memories visualized",
   "main": "server.js",
+  "engines": {
+    "node": "6.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -21,11 +24,14 @@
   },
   "homepage": "https://github.com/daniellecarrick/memories#readme",
   "dependencies": {
+    "angucomplete-alt": "^3.0.0",
     "angular": "^1.6.3",
+    "angular-ui-router": "^0.4.2",
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "d3": "^4.7.3",
     "express": "^4.15.2",
-    "mongoose": "^4.8.7"
+    "mongoose": "^4.8.7",
+    "ng-autocomplete": "^1.0.0"
   }
 }

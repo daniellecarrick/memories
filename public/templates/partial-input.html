@@ -1,0 +1,64 @@
+<section class="intro" id="section01">
+  <div class="landing-page">
+    <div ng-model="container" class="container">
+      <div class="row">
+        <h1>What is your most <br />valuable memory?</h1>
+        <!-- begin first row -->
+        <div class="col-sm-8 col-sm-offset-2">
+          <p>Think of a person, place or thing that evokes a strong memory.</p>
+            <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
+            <!-- test input {{ newMem.body }} -->
+        </div>
+      </div>
+      <!--begin second row-->
+      <div class="row">
+        <div class="range-selector">
+          <p>Was your memory more negative (1) or positive (10)?</p>
+          <div class="col-xs-3 neg">
+            <label><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></label>
+          </div>
+        <div class="col-sm-6 scale">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected">
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 1">1</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 2">2</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 3">3</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 4">4</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 5">5</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 6">6</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 7">7</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 8">8</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 9">9</button>
+              <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 10">10</button>
+              <!-- test input {{ newMem.posNeg }} -->
+            </div>
+          </div>
+        </div>
+          <div class="col-sm-3 pos">
+            <label><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></label>
+          </div>
+        </div>
+      </div>
+      <!--begin third row-->
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+          <label class="pull-left" for="age">Age at memory</label>
+            <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
+            <!-- test input {{ newMem.age }} -->
+        </div>
+        <div class="col-sm-5 loc">
+          <label class="pull-left" for="location">Memory location</label>
+<!--            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text"> -->
+        <input type="text"  class="form-control padding" ng-autocomplete ng-model="newMem.location" options="options" details="details"/>
+      </div><!--end row-->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="share">
+              <button class="btn btn-default" type="button" ng-click="addMem(newMem)" ui-sref="list">
+               Share</button>
+          </div>
+        </div>
+      </div>
+  <!--end container-->
+  </div>
+ </section>
