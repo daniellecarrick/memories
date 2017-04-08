@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 //mongoose.connect("mongodb://localhost/memoriesdb");
-mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/memoriesdb ');
+mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/memoriesdb');
 
 //  middleware  >
 app.use(bodyParser.json());
