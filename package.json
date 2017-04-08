@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Crowd sourced memories visualized",
   "main": "server.js",
+  "engines": {
+    "node": "6.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
