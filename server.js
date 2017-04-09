@@ -1,7 +1,7 @@
 //  packages & modules  >
 var express = require('express');
 var mongoose = require('mongoose');
-var Memory = require("./models/memoryModel");
+var Memory = require("./models/MemoryModel");
 var bodyParser = require('body-parser');
 
 var app = express();
@@ -64,6 +64,6 @@ app.post('/memoriesdb', function(req, res, next) {
 app.listen(process.env.PORT || '8080');
 
 //for right now just keep this commented, depend on the 'static' stuff [^.]+ will accept any string without a dot thereby ignoring file names
-app.all('[^.]+', function(req, res) {
+/*app.all('[^.]+', function(req, res) {
   res.sendFile(__dirname + '/public/index.html')
-});
+});*/
