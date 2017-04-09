@@ -22,7 +22,7 @@
           </div>
         <div class="col-xs-6 scale">
           <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected">
+            <div class="btn-group" role="group" ng-selected="newMem.posNeg" ng-model="selected" name="sentiment">
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 1">1</button>
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 2">2</button>
               <button type="button" class="btn btn-default" ng-click="newMem.posNeg = 3">3</button>
@@ -36,6 +36,7 @@
               <!-- test input {{ newMem.posNeg }} -->
             </div>
           </div>
+          <p ng-show="newMem.posNeg" class="help-block">Make a selection</p>
         </div>
           <div class="col-xs-3 pos">
             <label><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></label>
