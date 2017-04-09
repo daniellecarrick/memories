@@ -4,6 +4,7 @@
       <div class="row">
         <h1>What is your most <br />valuable memory?</h1>
         <!-- begin first row -->
+        <form>
         <div class="col-sm-8 col-sm-offset-2">
           <p>Think of a person, place or thing that evokes a strong memory.</p>
             <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body"></textarea>
@@ -41,13 +42,13 @@
       </div>
       <!--begin third row-->
       <div class="row">
-        <div class="col-xs-3 col-xs-offset-2">
-          <label class="pull-left" for="age">Age at memory</label>
+        <div class="col-sm-3 col-sm-offset-2">
+          <label for="age">Age at memory</label>
             <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
             <!-- test input {{ newMem.age }} -->
         </div>
         <div class="col-sm-5 loc">
-          <label class="pull-left" for="location">Memory location</label>
+          <p for="location">Memory location</p>
 <!--            <input class="form-control padding" id="location" placeholder="location" name="location" ng-model="newMem.location" type="text"> -->
         <input type="text"  class="form-control padding" ng-autocomplete ng-model="newMem.location" options="options" details="details"/>
       </div><!--end row-->
@@ -59,6 +60,7 @@
           </div>
         </div>
       </div>
+      </form>
   <!--end container-->
   </div>
  </section>
