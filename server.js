@@ -1,7 +1,7 @@
 //  packages & modules  >
 var express = require('express');
 var mongoose = require('mongoose');
-var Memory = require("./models/memoryModel");
+var Memory = require("./models/MemoryModel");
 var bodyParser = require('body-parser');
 
 var app = express();
