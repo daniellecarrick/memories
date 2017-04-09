@@ -32,11 +32,13 @@ app.controller('mainController', function($scope, memFactory) {
     $scope.addMem = function(newMem) {
         //&& $scope.posNeg && $scope.age && $scope.location
         // if($scope.age > 0){
-        memFactory.addMem(newMem).then(function(mem) {
-            $scope.thanks = true;
-            $scope.memoriesdb.push(mem);
-            console.log(mem.body, mem.age);
-        });
+        // validation
+        if (newMem.body.length > 10) {
+            memFactory.addMem(newMem).then(function(mem) {
+                $scope.thanks = true;
+                $scope.memoriesdb.push(mem);
+                console.log(mem.body, mem.age);
+            });
         //clearing fields but not on view
         $scope.body = "";
         $scope.posNeg = "";
@@ -44,7 +46,10 @@ app.controller('mainController', function($scope, memFactory) {
         $scope.location = "";
 
         console.log($scope.body, $scope.posNeg);
-        // }else{alert("please fill in the fields");}
+
+        } else {
+            console.log("you didnt enter enough values");
+        }
     };
 
     memFactory.getMems($scope.minAge, $scope.maxAge, $scope.minPosMem, $scope.maxPosMem).then(function(memoriesdb) {
