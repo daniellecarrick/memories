@@ -60,7 +60,7 @@ body, html {
 .landing-page h1 {
   color: white;
   font-family: 'Roboto Slab', serif;
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 20px;
 }
 
@@ -275,10 +275,14 @@ div.tooltip:after {
 }
 
 .input-group, .padding, textarea {
-  margin: 40px 0px;
+  margin: 0px 0px 40px 0px;
 }
 
 section {
+  height: 100%;
+}
+
+.view-container {
   height: 100%;
 }
 
