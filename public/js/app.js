@@ -6,7 +6,7 @@ app.config(['$stateProvider','$urlRouterProvider', '$locationProvider', function
 
   $stateProvider
     .state('home', {
-      url: '/home',
+      url: '/',
       templateUrl: 'templates/partial-input.html'
     })
     .state('explore', {

@@ -46,7 +46,8 @@ function drawScatterplot(elem) {
     });
 
     // sets the min and max for each axis
-    var xscale = x.domain(d3.extent(data, function(d) { return d.age; })).nice();
+    //var xscale = x.domain(d3.extent(data, function(d) { return d.age; })).nice();
+    var xscale = x.domain([0,d3.max(data, function(d) { return d.age; })]);
     // yscale contains the posNegs values which are always between 1 and 10.
     var yscale = y.domain([1, 10]);
 
