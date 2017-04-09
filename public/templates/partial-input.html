@@ -2,11 +2,11 @@
   <div class="landing-page">
     <div ng-model="container" class="container">
       <div class="row">
-        <h1>What is your most <br />valuable memory?</h1>
+        <h1>Describe a memory that has had an impact on your life.</h1>
         <!-- begin first row -->
         <form name="memoryForm" novalidate>
         <div class="col-sm-8 col-sm-offset-2">
-          <p>Think of a person, place or thing that evokes a strong memory.</p>
+          <!-- <p>Think of a person, place or thing that evokes a strong memory.</p> -->
             <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body" ng-minlength="20" ng-maxlength="200" ng-required="true"></textarea>
               <p ng-show="memoryForm.memory.$error.minlength" class="help-block">Text is too short.</p>
               <p ng-show="memoryForm.memory.$error.maxlength" class="help-block">Text is too long.</p>
@@ -16,7 +16,7 @@
       <!--begin second row-->
       <div class="row">
         <div class="range-selector">
-          <p>Was your memory more negative (1) or positive (10)?</p>
+          <p>Was your memory more negative or positive?</p>
           <div class="col-xs-3 neg">
             <label><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></label>
           </div>
@@ -36,7 +36,7 @@
               <!-- test input {{ newMem.posNeg }} -->
             </div>
           </div>
-          <p ng-show="newMem.posNeg" class="help-block">Make a selection</p>
+          <!-- <p ng-show="newMem.posNeg" class="help-block">Make a selection</p> -->
         </div>
           <div class="col-xs-3 pos">
             <label><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></label>
@@ -46,8 +46,8 @@
       <!--begin third row-->
       <div class="row">
         <div class="col-sm-3 col-sm-offset-2">
-          <label for="age">Age at memory</label>
-            <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age">
+          <p for="age">Age at memory</p>
+            <input class="form-control padding" placeholder="0" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age" ng-required="true">
             <!-- test input {{ newMem.age }} -->
         </div>
         <div class="col-sm-5 loc">
