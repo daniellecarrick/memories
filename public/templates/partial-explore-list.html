@@ -35,7 +35,7 @@
         <!--MAIN CONTAINER VIEWER-->
         <div class="row">
           <div class="card col-md-8 col-md-offset-2">
-            <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:5" class="card-block text-left">
+            <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:20" class="card-block text-left">
                 <h3 class="card-title">{{ x.location }}, {{ x.age }}
                 <span ng-if="x.posNeg < 5" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                 <span ng-if="x.posNeg > 5" class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
