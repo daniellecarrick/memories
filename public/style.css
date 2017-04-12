@@ -144,6 +144,7 @@ select {
 .custom-nav .navbar-right {
   height: 50px;
   float: right;
+  margin-right: 10px;
 }
 
 .custom-nav button {
@@ -267,10 +268,10 @@ div.tooltip:after {
 
 #about a {
   color: white;
-  font-size: 14px;
+  text-decoration: underline;
 }
 
-#about h2 {
+#about h2, #about h3 {
   text-align: center;
 }
 
