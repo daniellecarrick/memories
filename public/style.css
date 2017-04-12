@@ -146,6 +146,7 @@ select {
 .custom-nav .navbar-right {
   width: 230px;
   height: 50px;
+  float: right;
 }
 
 .custom-nav button {

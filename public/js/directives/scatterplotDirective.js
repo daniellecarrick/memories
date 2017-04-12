@@ -1,4 +1,3 @@
-
 function drawScatterplot(elem) {
   // get rid of jQuery selection to access raw HTML node of <dc-scatterplot>
   var rootNode = elem[0];
@@ -11,7 +10,7 @@ function drawScatterplot(elem) {
       height = 500 - margin.top - margin.bottom;*/
 
   // set width based on window size
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  var margin = {top: 20, right: 30, bottom: 70, left: 40},
       width = parseInt(d3.select('body').style('width'), 10),
       width = width - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
@@ -120,11 +119,10 @@ function drawScatterplot(elem) {
             .attr("r", 10);
         })
   });
+ // redraw chart on window resize
+/*  d3.select(window).on('resize', resize);
 
-  // redraw chart on window resize
-  d3.select(window).on('resize', resize);
-
-  function resize () {
+  function resize (data) {
     console.log("window was resized");
 
     // update width
@@ -133,8 +131,21 @@ function drawScatterplot(elem) {
 
     console.log(width, height);
     //console.log(root, rootNode);
-  }
+
+    // resize axis
+    svg.select('.x.axis').call(d3.axisBottom(x));
+    x.range([0, width]);
+    d3.select(root)
+        //.style('height', (y.domain()[1] + margin.top + margin.bottom) + 'px')
+        .style('width', (width + margin.left + margin.right) + 'px');
+
+    //move the dots
+    d3.selectAll('dots')
+      .attr("cx", function(d) { return x(d.age); })
+
+  }*/
 }
+
 
 /* A custom directive for the scatterplot chart */
 app.directive("dcScatterplot", function() {
