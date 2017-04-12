@@ -30,14 +30,14 @@
 
         <select id="sel" ng-model="selectbox">
           <option ng-repeat="x in uniqueLocs | orderBy:location">{{x}}</option>
-          <option value="search by location" selected>search by location</option>
+          <option value selected>-- All --</option>
         </select>
       </div>
     </div>
         <!--MAIN CONTAINER VIEWER-->
         <div class="row">
           <div class="card col-md-8 col-md-offset-2">
-            <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox} | limitTo:20" class="card-block text-left">
+            <div ng-model="mailContent" ng-repeat="x in memoriesdb | filter:{location:selectbox || undefined} | limitTo:20" class="card-block text-left">
                 <h3 class="card-title">{{ x.location }}, {{ x.age }}
                 <span ng-if="x.posNeg < 5" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                 <span ng-if="x.posNeg > 5" class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
