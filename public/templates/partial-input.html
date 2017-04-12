@@ -8,13 +8,26 @@
         <form name="memoryForm" novalidate>
         <div class="col-sm-10 col-sm-offset-1">
           <!-- <p>Think of a person, place or thing that evokes a strong memory.</p> -->
-            <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Share your memory" ng-model="newMem.body" ng-minlength="20" ng-maxlength="200" ng-required="true"></textarea>
+            <textarea class="form-control" id="memory" type="text" name="memory" placeholder="Need inspiration? Click the List tab above to browse submitted memories." ng-model="newMem.body" ng-minlength="20" ng-maxlength="200" ng-required="true"></textarea>
               <p ng-show="memoryForm.memory.$error.minlength" class="help-block">Text is too short.</p>
               <p ng-show="memoryForm.memory.$error.maxlength" class="help-block">Text is too long.</p>
             <!-- test input {{ newMem.body }} -->
         </div>
       </div>
-      <!--begin second row-->
+
+      <!--Age and location inputs-->
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+          <!-- <p for="age">Age at memory</p> -->
+            <input class="form-control input-padding" placeholder="Age at memory" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age" ng-required="true">
+            <!-- test input {{ newMem.age }} -->
+        </div>
+        <div class="col-sm-6 loc">
+       <!--    <p for="location">Memory location</p> -->
+        <input type="text" class="form-control input-padding" name="location" placeholder="Memory location" ng-autocomplete ng-model="newMem.location" options="options" details="details" ng-required="true"/>
+        </div>
+      </div>
+
       <div class="row">
         <div class="range-selector">
           <p>Was your memory more negative or positive?</p>
@@ -44,17 +57,6 @@
           </div>
         </div>
       </div>
-      <!--begin third row-->
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-1">
-          <!-- <p for="age">Age at memory</p> -->
-            <input class="form-control padding" placeholder="Age at memory" id="age" min="0" max="100" type="number" name="age" ng-model="newMem.age" ng-required="true">
-            <!-- test input {{ newMem.age }} -->
-        </div>
-        <div class="col-sm-6 loc">
-       <!--    <p for="location">Memory location</p> -->
-        <input type="text" class="form-control padding" name="location" placeholder="Memory location" ng-autocomplete ng-model="newMem.location" options="options" details="details" ng-required="true"/>
-      </div><!--end row-->
       <div class="row">
         <div class="col-sm-12">
           <div class="share">
