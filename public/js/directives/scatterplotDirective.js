@@ -12,7 +12,7 @@ function drawScatterplot(elem) {
   // set width based on window size
   var margin = {top: 20, right: 30, bottom: 70, left: 40},
       width = parseInt(d3.select('body').style('width'), 10),
-      width = width - margin.left - margin.right,
+      width = width - margin.left - margin.right - 60,
       height = 500 - margin.top - margin.bottom;
 
   var x = d3.scaleLinear()
@@ -67,7 +67,7 @@ function drawScatterplot(elem) {
        .attr("class", "label x-axis-label")
        .attr("x", width/2)
        .attr("y", height/2 + 20)
-       .style("text-anchor", "middle") //axis label not showing up
+       .style("text-anchor", "middle")
        .text("age");
 
     // y-axis rendering
