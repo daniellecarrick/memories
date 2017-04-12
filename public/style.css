@@ -98,11 +98,9 @@ body, html {
 /***********************/
 
 .textview {
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#1c618e),to(#27848e));
-  background-image: -webkit-linear-gradient(top,#1c618e 0,#27848e 100%);
-  background-image: -o-linear-gradient(top,#1c618e 0,#27848e 100%);
-  background-image: linear-gradient(to bottom,#1c618e 0,#27848e 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c618e', endColorstr='#27848e', GradientType=0);
+  background: #43C6AC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #43C6AC, #191654);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #43C6AC, #191654); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   /*background-repeat: repeat-x;
   overflow-y: auto;*/
 }
@@ -140,11 +138,10 @@ select {
   margin: 3% 0%;
 }
 /***********************/
-/* Explore section styles   */
+/* Explore section styles
 /***********************/
 
 .custom-nav .navbar-right {
-  width: 230px;
   height: 50px;
   float: right;
 }
@@ -258,6 +255,16 @@ div.tooltip:after {
   stroke-width: 1.5px;
   stroke-opacity: .5;
 }
+/***********************/
+/* About               */
+/***********************/
+
+#about {
+  background: #134E5E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 
 /***********************/
 /* Global Styles       */
@@ -308,21 +315,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/*scroll bar styling*/
-
-/*::-webkit-scrollbar {
-    width: 20px;
-}
-
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-}*/
 
 .range-selector {
   margin: 0px 0px 90px 0px;

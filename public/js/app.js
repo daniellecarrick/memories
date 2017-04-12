@@ -21,6 +21,10 @@ app.config(['$stateProvider','$urlRouterProvider', '$locationProvider', function
       url: '/chart',
       templateUrl: 'templates/partial-explore-chart.html'
     })
+    .state('about', {
+      url: '/about',
+      templateUrl: 'templates/partial-about.html'
+    })
 
   $urlRouterProvider.otherwise('/home');
 }]);
