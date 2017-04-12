@@ -263,7 +263,23 @@ div.tooltip:after {
   background: #134E5E;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
+#about a {
+  color: white;
+  font-size: 14px;
+}
+
+#about h2 {
+  text-align: center;
+}
+
+span .fa {
+  font-size: 25px;
+}
+
+.social-icons {
+  margin-top: 20px;
 }
 
 /***********************/
