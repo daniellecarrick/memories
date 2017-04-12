@@ -1,3 +1,4 @@
+
 function drawScatterplot(elem) {
   // get rid of jQuery selection to access raw HTML node of <dc-scatterplot>
   var rootNode = elem[0];
@@ -9,8 +10,9 @@ function drawScatterplot(elem) {
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;*/
 
+  // set width based on window size
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      width = parseInt(d3.select('.chart-container').style('width'), 10),
+      width = parseInt(d3.select('body').style('width'), 10),
       width = width - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
@@ -118,8 +120,8 @@ function drawScatterplot(elem) {
         d3.select(this).transition()
             .attr("r", 10);
         })
-
   });
+  d3.select(window).on('resize', console.log(width, height));
 }
 
 /* A custom directive for the scatterplot chart */
