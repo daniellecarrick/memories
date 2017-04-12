@@ -5,8 +5,13 @@ function drawScatterplot(elem) {
   var root = d3.select(rootNode).select('.chart-container');
 
   // console.log(d3.select());
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+/*  var margin = {top: 20, right: 20, bottom: 30, left: 40},
       width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;*/
+
+  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+      width = parseInt(d3.select('.chart-container').style('width'), 10),
+      width = width - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
   var x = d3.scaleLinear()
