@@ -23,14 +23,13 @@ function drawScatterplot(elem) {
       .range([height, 0]);
 
   /* Domain of possible values is 0 to 10. Range needs to be between 0 and 1 for d3.interpolate*/
-  var colors = d3.scaleLinear().domain([1,10]).range([1,0]);
+  //var colors = d3.scaleLinear().domain([1,10]).range([1,0]);
 
   var xAxis = d3.select(".axis")
       .call(d3.axisBottom(x));
 
   var yAxis = d3.select(".axis")
       .call(d3.axisLeft(y));
-
 
   var svg = root.append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -42,7 +41,7 @@ function drawScatterplot(elem) {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-  // get the data! from a database! how cool!
+  // get the data! from the memoriesdb database! how cool!
   d3.json('/memoriesdb', function (err, data) {
    // console.log('your array of memories!', data);
 
@@ -121,7 +120,20 @@ function drawScatterplot(elem) {
             .attr("r", 10);
         })
   });
-  d3.select(window).on('resize', console.log(width, height));
+
+  // redraw chart on window resize
+  d3.select(window).on('resize', resize);
+
+  function resize () {
+    console.log("window was resized");
+
+    // update width
+    width = parseInt(d3.select('body').style('width'), 10);
+    width = width - margin.left - margin.right;
+
+    console.log(width, height);
+    //console.log(root, rootNode);
+  }
 }
 
 /* A custom directive for the scatterplot chart */
