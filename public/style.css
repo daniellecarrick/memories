@@ -36,6 +36,10 @@ body, html {
   height: 100%;
 }
 
+.share {
+  padding: 5px 20px;
+}
+
 .landing-page {
   height: 100%;
   position: relative;
@@ -334,7 +338,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .range-selector {
-  margin: 0px 0px 90px 0px;
+  margin: 0px 0px 80px 0px;
 }
 
 .range-selector p {
@@ -348,7 +352,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 2em;
   }
 
-  .btn {
+  .btn-toolbar .btn {
     padding: 2px;
   }
 
@@ -359,5 +363,9 @@ input[type=number]::-webkit-outer-spin-button {
 
   .landing-page {
     height: inherit;
+  }
+
+  .range-selector {
+    margin-bottom: 20px;
   }
 }
