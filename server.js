@@ -35,7 +35,7 @@ app.get('/memoriesdb', function(req, res, next) {
   var minSentiment = req.query.minSentiment || 0;
   var maxSentiment = req.query.maxSentiment|| 10;
 
-  Memory.find({'age': {$gt: minAge, $lt: maxAge}, 'posNeg': {$gt: minSentiment, $lt: maxSentiment}},  function(error, mem) {
+  Memory.find({'age': {$gte: minAge, $lte: maxAge}, 'posNeg': {$gte: minSentiment, $lte: maxSentiment}},  function(error, mem) {
     if (error) {
       console.error(error)
       return next(error);
